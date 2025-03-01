@@ -1,2 +1,2 @@
-# brody-brody.github.io
-Repository for my portfolio website.
+# Brody Silva
+2nd year Game Programming student at Champlain College
