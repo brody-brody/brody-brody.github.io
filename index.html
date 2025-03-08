@@ -11,87 +11,105 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Geo:ital@0;1&display=swap" rel="stylesheet">
     <!-- favicon support for all devices -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- link to external CSS file -->
+    <link rel="stylesheet" href="styles.css">
     <!-- site title in tab -->
     <title>Brody Silva</title>
-    <style>
-        body {
-            background: repeating-linear-gradient(-45deg, #540a00 15px, #660d01 22px, #851101 10px, #330601 11px);
-            font-family: 'Fira Sans', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            margin: auto;
-        }
-        .container {
-            background-color: white;
-            border: 4px solid #2e2e2e;
-            border-radius: 20px;
-            padding: 30px 40px;
-            margin-top: -180px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        } 
-        h1 {
-            font-size: 2.75rem;
-            margin-bottom: -10px;
-            color: #333333;
-        }
-        p {
-            font-size: 1.25rem;
-            margin-bottom: -20px;
-            color: #444444;
-        }
-        .links {
-            margin-top: 50px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .links a {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: #666666;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        .links a:hover {
-            transform: translateY(-2px);
-        }
-        .linkedin {
-            background-color: #666666;
-        }
-
-        .linkedin:hover {
-            background-color: #0077B5; /* LinkedIn Blue */
-        }
-
-        .itch {
-            background-color: #666666;
-        }
-
-        .itch:hover {
-            background-color: #FA5C5C; /* Itch.io's 'Itchy Carnation' */
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <h1>Brody Silva</h1>
         <p>2nd Year Game Programming Major</p>
         <p>Minoring in Computer Science and Mathematics</p>
-        <div class="links">
-            <a href="https://www.linkedin.com/in/brody-silva" target="_blank" class="linkedin">LinkedIn</a>
-            <a href="https://brody-brody.itch.io" target="_blank" class="itch">Itch.io</a>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="about">About Me</button>
+            <button class="tab-btn" data-tab="projects">Projects</button>
+            <button class="tab-btn" data-tab="skills">Skills & Tools</button>
+            <button class="tab-btn" data-tab="resume">Resume & Contact</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div id="about" class="tab-content active">
+            <div class="about-header">
+                <img src="images/headshot.jpg" alt="Brody Silva" class="headshot">
+            </div>
+            <p>Hello! I'm Brody Silva, a passionate Game Programming student with a strong interest in creating engaging interactive experiences. Additional, taking on two minors in Computer Science and Mathematics, I bring a well-rounded approach to game development.</p>
+            <p>I focus on crafting clean, architectured code, creating tools for my team members to succeed, and implementing gameplay mechanics that are both challenging and enjoyable. My strong academic background provides me with strong problem-solving skills and a solid foundation in programming principles.</p>
+            <p>When I'm not programming, I enjoy running, rock climbing, playing volleyball, and collecting retro games. I'm always looking to collaborate on exciting game projects and expand my knowledge in the field.</p>
+        </div>
+
+        <div id="projects" class="tab-content">
+            <div class="project-card">
+                <h3>Temp Game Project Title</h3>
+                <p>Temp game description</p>
+                <a href="#">Temp</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Temp Game Project Title</h3>
+                <p>Temp game description</p>
+                <a href="#">Temp</a>
+</div>
+
+            <div class="project-card">
+                <h3>Temp Game Project Title</h3>
+                <p>Temp game description</p>
+                <a href="#">Temp</a>
+            </div>
+        </div>
+
+        <div id="skills" class="tab-content">
+            <h3>Programming Languages</h3>
+            <div class="skills-container">
+                <span class="skill-item">C#</span>
+                <span class="skill-item">C++</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">HTML/CSS</span>
+                <span class="skill-item">SQL</span>
+                <span class="skill-item">Assembly</span>
+            </div>
+
+            <h3>Game Development</h3>
+            <div class="skills-container">
+                <span class="skill-item">Unity</span>
+                <span class="skill-item">Unreal Engine</span>
+                <span class="skill-item">Game Architecture</span>
+                <span class="skill-item">Game Programming Patterns</span>
+            </div>
+
+            <h3>Tools & Technologies</h3>
+            <div class="skills-container">
+                <span class="skill-item">Git</span>
+                <span class="skill-item">Visual Studio</span>
+            </div>
+        </div>
+
+        <div id="resume" class="tab-content">
+            <h3>Resume</h3>
+            <p>You can download my resume <a href="assets/resume.pdf">here</a> or view it online.</p>
+
+            <h3>Contact Information</h3>
+            <div class="contact-info">
+                <p>Email: basilva405@gmail.com</p>
+                <p>Phone: Email me for my contact!</p>
+            </div>
+
+            <h3>Professional Profiles</h3>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/brody-silva" target="_blank" class="linkedin">LinkedIn</a>
+                <a href="https://brody-brody.itch.io" target="_blank" class="itch">Itch.io</a>
+            </div>
         </div>
     </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,216 @@
+body {
+	background: repeating-linear-gradient(-45deg, #540a00 15px, #660d01 22px, #851101 10px, #330601 11px);
+	font-family: 'Fira Sans', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	text-align: center;
+	margin: auto;
+}
+
+.container {
+	background-color: white;
+	border: 4px solid #2e2e2e;
+	border-radius: 20px;
+	padding: 30px 40px;
+	margin-top: -50px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	width: 80%;
+	max-width: 700px;
+	max-height: 80vh;
+	overflow-y: auto;
+}
+
+h1 {
+	font-size: 2.75rem;
+	margin-bottom: -10px;
+	color: #333333;
+}
+
+p {
+	font-size: 1.25rem;
+	color: #444444;
+	margin-bottom: 10px;
+}
+
+.links {
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+	.links a {
+		display: inline-block;
+		padding: 8px 15px;
+		background-color: #666666;
+		color: white;
+		text-decoration: none;
+		border-radius: 5px;
+		font-weight: 500;
+		transition: all 0.2s ease;
+	}
+
+		.links a:hover {
+			transform: translateY(-2px);
+		}
+
+.linkedin {
+	background-color: #666666;
+}
+
+	.linkedin:hover {
+		background-color: #0077B5; /* LinkedIn Blue */
+	}
+
+.itch {
+	background-color: #666666;
+}
+
+	.itch:hover {
+		background-color: #FA5C5C; /* Itch.io's 'Itchy Carnation' */
+	}
+
+/* Tab Styles */
+.tabs {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.tab-btn {
+	padding: 10px 15px;
+	border: none;
+	background-color: #666666;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 500;
+	transition: all 0.2s ease;
+}
+
+	.tab-btn:hover {
+		transform: translateY(-2px);
+	}
+
+	.tab-btn.active {
+		background-color: #851101;
+	}
+
+.tab-content {
+	display: none;
+	text-align: left;
+}
+
+	.tab-content.active {
+		display: block;
+	}
+
+/* Headshot Styles */
+.about-header {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.headshot {
+	width: 200px;
+	height: 300px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid #2e2e2e;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Card Styles */
+.project-card {
+	border: 2px solid #2e2e2e;
+	border-radius: 10px;
+	padding: 15px;
+	margin-bottom: 20px;
+	background-color: #f9f9f9;
+}
+
+	.project-card h3 {
+		margin-top: 0;
+		color: #333333;
+	}
+
+	.project-card a {
+		display: inline-block;
+		margin-top: 10px;
+		color: #851101;
+		text-decoration: none;
+		font-weight: 500;
+	}
+
+		.project-card a:hover {
+			text-decoration: underline;
+		}
+
+/* Skills Styles */
+.skills-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.skill-item {
+	background-color: #f0f0f0;
+	padding: 5px 12px;
+	border-radius: 15px;
+	border: 1px solid #2e2e2e;
+}
+
+/* Resume & Contact Styles */
+.contact-info {
+	margin-bottom: 20px;
+}
+
+	.contact-info a {
+		color: #851101;
+		text-decoration: none;
+	}
+
+		.contact-info a:hover {
+			text-decoration: underline;
+		}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+	.container {
+		width: 90%;
+		padding: 20px;
+	}
+
+	.tabs {
+		flex-wrap: wrap;
+	}
+
+	h1 {
+		font-size: 2.2rem;
+	}
+
+	p {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		width: 95%;
+		padding: 15px;
+		margin-top: -30px;
+	}
+
+	.headshot {
+		width: 150px;
+		height: 150px;
+	}
+}
