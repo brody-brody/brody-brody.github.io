@@ -63,14 +63,11 @@ p {
 			transform: translateY(-2px);
 		}
 
-.resume-links {
+.linkedin {
+	background-color: #666666;
 	display: flex;
 	justify-content: flex-start;
 	gap: 20px;
-}
-
-.linkedin {
-	background-color: #666666;
 }
 
 	.linkedin:hover {
@@ -79,6 +76,9 @@ p {
 
 .itch {
 	background-color: #666666;
+	display: flex;
+	justify-content: flex-start;
+	gap: 20px;
 }
 
 	.itch:hover {
@@ -133,7 +133,7 @@ p {
 .headshot {
 	width: 200px;
 	height: 300px;
-	border-radius: 15px;
+	border-radius: 8px;
 	object-fit: cover;
 	border: 3px solid #2e2e2e;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
