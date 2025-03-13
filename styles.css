@@ -286,7 +286,7 @@ p {
 	display: flex;
 	align-items: center;
 	font-size: 1.2rem;
-	font-weight: bold;
+	font-weight: normal;
 	color: #333;
 	gap: 10px;
 }
@@ -294,12 +294,13 @@ p {
 	/* Devicon Icons */
 	.skill i {
 		font-size: 2rem;
-		color: #ff7eb3;
+		color: #851101;
 	}
 
 /* Progress Bar */
 .progress-bar {
-	flex-grow: 1;
+	width: 100%;
+	max-width: 400px;
 	height: 10px;
 	background-color: #ddd;
 	border-radius: 5px;
@@ -309,7 +310,7 @@ p {
 
 .progress-fill {
 	height: 100%;
-	background-color: #ff7eb3;
+	background-color: #851101;
 	border-radius: 5px;
 	width: 0; /* Default width (will animate in JS) */
 	transition: width 1s ease-in-out;
