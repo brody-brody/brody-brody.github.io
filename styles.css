@@ -299,6 +299,10 @@ p {
 		color: #851101;
 	}
 
+#skills {
+	padding-bottom: 100px;
+}
+
 /* Progress Bar */
 .progress-bar {
 	width: 100%;
