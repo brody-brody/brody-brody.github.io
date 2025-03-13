@@ -153,24 +153,25 @@ p {
 	padding: 15px;
 	margin-bottom: 20px;
 	background-color: #f9f9f9;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	cursor: pointer;
 }
 
-	.project-card h3 {
-		margin-top: 0;
-		color: #333333;
+	.project-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 	}
 
-	.project-card a {
-		display: inline-block;
-		margin-top: 10px;
-		color: #851101;
-		text-decoration: none;
-		font-weight: 500;
-	}
+.view-project {
+	display: inline-block;
+	margin-top: 10px;
+	color: #851101;
+	font-weight: 500;
+}
 
-		.project-card a:hover {
-			text-decoration: underline;
-		}
+.project-card:hover .view-project {
+	text-decoration: underline;
+}
 
 /* Skills Styles */
 .skills-container {
@@ -189,6 +190,7 @@ p {
 
 /* Resume & Contact Styles */
 .contact-info {
+	justify-content: center;
 	margin-bottom: 20px;
 }
 
