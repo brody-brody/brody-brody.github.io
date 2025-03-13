@@ -18,3 +18,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// Image expansion functionality
+const galleryImages = document.querySelectorAll('.gallery-image');
+const overlay = document.getElementById('imageOverlay');
+const expandedImg = document.getElementById('expandedImg');
+const closeBtn = document.querySelector('.close-overlay');
+
+// Function to open the overlay
+function openOverlay(imgSrc) {
+    expandedImg.src = imgSrc;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when overlay is open
+}
+
+// Function to close the overlay
+function closeOverlay() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+}
+
+// Add click event to all gallery images
+galleryImages.forEach(img => {
+    img.addEventListener('click', function () {
+        openOverlay(this.src);
+    });
+});
+
+// Close overlay when clicking on it or the close button
+overlay.addEventListener('click', function (e) {
+    if (e.target === overlay || e.target === closeBtn) {
+        closeOverlay();
+    }
+});
+
+// Close overlay with escape key
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        closeOverlay();
+    }
+});
+});

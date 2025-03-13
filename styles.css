@@ -174,7 +174,7 @@ p {
 	width: 100%;
 	height: 150px;
 	object-fit: contain;
-	background-color: #666666;
+	background-color: #f0f0f0;
 	border-radius: 10px;
 	border: 2px solid #2e2e2e;
 	transition: transform 0.2s ease;
@@ -201,6 +201,54 @@ p {
 		max-width: 300px;
 		margin: 0 auto;
 	}
+}
+
+/* Expandable Image Styles */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+	.overlay.active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+.overlay-image {
+	max-width: 90%;
+	max-height: 90%;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	transform: scale(0.9);
+	transition: transform 0.3s ease;
+}
+
+.overlay.active .overlay-image {
+	transform: scale(1);
+}
+
+.gallery-image {
+	cursor: pointer; /* Add cursor pointer to show images are clickable */
+}
+
+.close-overlay {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: white;
+	font-size: 30px;
+	cursor: pointer;
 }
 
 /* Project Card Styles */
