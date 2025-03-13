@@ -275,19 +275,44 @@ p {
 	text-decoration: underline;
 }
 
-/* Skills Styles */
-.skills-container {
+/* Skills Section */
+.skills-list {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-	margin-bottom: 20px;
+	flex-direction: column;
+	gap: 15px;
 }
 
-.skill-item {
-	background-color: #f0f0f0;
-	padding: 5px 12px;
-	border-radius: 15px;
-	border: 1px solid #2e2e2e;
+.skill {
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #333;
+	gap: 10px;
+}
+
+	/* Devicon Icons */
+	.skill i {
+		font-size: 2rem;
+		color: #ff7eb3;
+	}
+
+/* Progress Bar */
+.progress-bar {
+	flex-grow: 1;
+	height: 10px;
+	background-color: #ddd;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+}
+
+.progress-fill {
+	height: 100%;
+	background-color: #ff7eb3;
+	border-radius: 5px;
+	width: 0; /* Default width (will animate in JS) */
+	transition: width 1s ease-in-out;
 }
 
 /* Resume & Contact Styles */

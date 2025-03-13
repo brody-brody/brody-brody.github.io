@@ -58,3 +58,19 @@ document.addEventListener('keydown', function (e) {
         closeOverlay();
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const progressBars = document.querySelectorAll(".progress-fill");
+
+    function checkScroll() {
+        progressBars.forEach(bar => {
+            const rect = bar.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                bar.style.width = bar.getAttribute("style").match(/width:\s*(\d+%)/)[1];
+            }
+        });
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll(); // Run once on load
+});
