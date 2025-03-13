@@ -178,6 +178,7 @@ p {
 	border-radius: 10px;
 	border: 2px solid #2e2e2e;
 	transition: transform 0.2s ease;
+	cursor: pointer;
 }
 
 	.gallery-image:hover {
@@ -236,10 +237,6 @@ p {
 
 .overlay.active .overlay-image {
 	transform: scale(1);
-}
-
-.gallery-image {
-	cursor: pointer; /* Add cursor pointer to show images are clickable */
 }
 
 .close-overlay {
