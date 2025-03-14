@@ -84,7 +84,7 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
     const message = document.querySelector('textarea[name="message"]').value;
 
     Email.send({
-        SecureToken: "SMTPJS_TOKEN",
+        SecureToken: "39c92710-912c-4abe-9ba4-626a5d20bd01",
         To: 'brodysilva.dev@gmail.com',
         From: email,
         Subject: `New message from ${name}`,
