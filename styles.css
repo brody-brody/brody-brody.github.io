@@ -330,7 +330,7 @@ p {
 }
 
 .resume-preview {
-	width: 232px; /* adjusting to 8.5 / 11 aspect ratio */
+	width: 231px; /* adjusting to 8.5 / 11 aspect ratio */
 	height: 300px;
 	border: 4px solid #2e2e2e;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
