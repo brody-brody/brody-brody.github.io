@@ -15,7 +15,9 @@ jobs:
 
       - name: Inject SMTP Token
         run: |
-          sed -i "s/SMTPJS_TOKEN/${{ secrets.SMTPJS_TOKEN }}/g" script.js
+          sed -i "s/HOST_TOKEN/${{ secrets.HOST_TOKEN }}/g" script.js
+          sed -i "s/USER_TOKEN/${{ secrets.USER_TOKEN }}/g" script.js
+          sed -i "s/PASS_TOKEN/${{ secrets.PASS_TOKEN }}/g" script.js
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
