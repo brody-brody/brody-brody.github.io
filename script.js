@@ -100,8 +100,16 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
         To: 'brodysilva.dev@gmail.com',
         From: 'brodysilva.dev@gmail.com',
         ReplyTo: email,
-        Subject: `New message from ${name}`,
-        Body: message
+        Subject: `Portfolio Contact from ${name}`,
+        Body: '
+            <h3>New Contact Form Submission</h3>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Message:</strong></p>
+            <p>${message}</p>
+        ',
+
+        SMTPAuth: true
     }).then(
         result => {
             console.log("Email send result:", result);
