@@ -415,6 +415,31 @@ p {
 	font-size: 18px;
 }
 
+/* Footer Styles */
+.site-footer {
+	margin-top: 30px;
+	padding-top: 15px;
+	padding-bottom: 50px;
+	border-top: 1px solid #2e2e2e;
+	text-align: center;
+}
+
+.footer-text {
+	font-size: 0.85rem;
+	color: #666666;
+	margin: 0;
+}
+
+.footer-link {
+	color: #851101;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+	.footer-link:hover {
+		text-decoration: underline;
+	}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
 	.container {
