@@ -83,6 +83,16 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
     const email = document.querySelector('input[name="email"]').value;
     const message = document.querySelector('textarea[name="message"]').value;
 
+    console.log("Form submission initiated with data:", { name, email, message });
+
+    // Check if Email object exists
+    if (typeof Email === 'undefined') {
+        console.error("SMTP.js library not loaded - Email object undefined");
+        alert("Email sending library not loaded. Please refresh the page and try again.");
+        return;
+    }
+
+
     Email.send({
         Host: "s1.maildns.net",
         Username: "tgqjlalo",
@@ -93,14 +103,20 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
         Subject: `New message from ${name}`,
         Body: message
     }).then(
-        message => {
-            alert("Message sent successfully!");
-            document.querySelector('.contact-form').reset();
+        result => {
+            console.log("Email send result:", result);
+            if (result === "OK") {
+                alert("Your message has been sent successfully!");
+                document.querySelector('.contact-form').reset();
+            } else {
+                alert("There was an issue sending your message. Please try again.");
+                console.error("Unexpected result from Email.send:", result);
+            }
         }
     ).catch(
         error => {
-            console.error("Error sending email:", error);
-            alert("Failed to send message. Please try again or contact directly via email.");
+            console.error("Error in Email.send:", error);
+            alert("Failed to send your message. Please try again later or contact directly via email.");
         }
     );
 });
