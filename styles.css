@@ -149,18 +149,22 @@ p {
 /* Updated About Me Section Styles */
 .about-content {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: flex-start;
 	margin-bottom: 30px;
+	gap: 20px;
 }
 
 .resources-section {
-	width: 35%;
+	width: 45%;
 	padding: 15px;
 	background-color: #f9f9f9;
 	border: 2px solid #2e2e2e;
 	border-radius: 10px;
-	margin-right: 20px;
+	height: 300px; /* Match the height of your headshot */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 	.resources-section h4 {
@@ -194,7 +198,9 @@ p {
 	}
 
 .about-header {
-	width: 60%;
+	width: 45%;
+	display: flex;
+	justify-content: center;
 }
 
 .about-tagline {
@@ -203,6 +209,7 @@ p {
 	text-align: center;
 	margin-bottom: 20px;
 	font-size: 1.2rem;
+	clear: both;
 }
 
 .highlight {
