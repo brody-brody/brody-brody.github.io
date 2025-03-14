@@ -74,3 +74,22 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", checkScroll);
     checkScroll(); // Run once on load
 });
+
+// Contact form event using smtp.js
+document.querySelector('.contact-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevents the form from refreshing the page
+
+    const name = document.querySelector('input[name="name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const message = document.querySelector('textarea[name="message"]').value;
+
+    Email.send({
+        SecureToken: "SMTPJS_TOKEN",
+        To: 'brodysilva.dev@gmail.com',
+        From: email,
+        Subject: `New message from ${name}`,
+        Body: message
+    }).then(
+        message => alert("Message sent successfully!")
+    );
+});
