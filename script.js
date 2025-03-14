@@ -94,9 +94,10 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
 
 
     Email.send({
-        Host: "s1.maildns.net",
-        Username: "tgqjlalo",
-        Password: "-wI*xztEB9K442",
+        Host: "smtp.gmail.com",
+        Username: "brodysilva.dev@gmail.com",
+        Password: "vizi cigq lvpq qahj",
+        Port: 587,
         To: 'brodysilva.dev@gmail.com',
         From: 'brodysilva.dev@gmail.com',
         ReplyTo: email,
