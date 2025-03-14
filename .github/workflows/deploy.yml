@@ -18,6 +18,7 @@ jobs:
           sed -i "s/HOST_TOKEN/${{ secrets.HOST_TOKEN }}/g" script.js
           sed -i "s/USER_TOKEN/${{ secrets.USER_TOKEN }}/g" script.js
           sed -i "s/PASS_TOKEN/${{ secrets.PASS_TOKEN }}/g" script.js
+          sed -i "s/SMTP_GMAIL_TOKEN/${{ secrets.SMTP_GMAIL_TOKEN }}/g" script.js
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
