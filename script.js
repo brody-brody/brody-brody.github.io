@@ -88,10 +88,19 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
         Username: "tgqjlalo",
         Password: "-wI*xztEB9K442",
         To: 'brodysilva.dev@gmail.com',
-        From: email,
+        From: 'brodysilva.dev@gmail.com',
+        ReplyTo: email,
         Subject: `New message from ${name}`,
-        Body: message
+        Body: '<strong>Name:</strong>${name}<br><strong>Email:</strong>${email}<br><strong>Message:</strong>${message}<br>'
     }).then(
-        message => alert("Message sent successfully!")
+        message => {
+            alert("Message sent successfully!");
+            document.querySelector('.contact-form').reset();
+        }
+    ).catch(
+        error => {
+            console.error("Error sending email:", error);
+            alert("Failed to send message. Please try again or contact directly via email.");
+        }
     );
 });
