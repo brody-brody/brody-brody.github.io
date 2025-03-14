@@ -75,49 +75,52 @@ document.addEventListener("DOMContentLoaded", function () {
     checkScroll(); // Run once on load
 });
 
-// Contact form event using smtp.js
-document.querySelector('.contact-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevents the form from refreshing the page
+// Contact form event
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.contact-form');
 
-    const name = document.querySelector('input[name="name"]').value;
-    const email = document.querySelector('input[name="email"]').value;
-    const message = document.querySelector('textarea[name="message"]').value;
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-    console.log("Form submission initiated with data:", { name, email, message });
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
 
-    // Check if Email object exists
-    if (typeof Email === 'undefined') {
-        console.error("SMTP.js library not loaded - Email object undefined");
-        alert("Email sending library not loaded. Please refresh the page and try again.");
-        return;
+            const formData = new FormData(this);
+            const formAction = this.getAttribute('action');
+
+            // Convert FormData to URL encoded string for FormSubmit
+            const data = Array.from(formData.entries()).reduce((data, [key, value]) => {
+                data[key] = value;
+                return data;
+            }, {});
+
+            fetch(formAction, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Message sent successfully!');
+                        form.reset();
+                    } else {
+                        throw new Error('Something went wrong');
+                    }
+                })
+                .catch(error => {
+                    alert('There was an error sending your message. Please try again.');
+                    console.error(error);
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                });
+        });
     }
-
-
-    Email.send({
-        Host: "HOST_TOKEN",
-        Username: "USER_TOKEN",
-        Password: "PASS_TOKEN",
-        To: 'brodysilva.dev@gmail.com',
-        From: 'brodysilva.dev@gmail.com',
-        ReplyTo: email,
-        Subject: 'Portfolio Contact from ${name}',
-        Body: message,
-        SMTPAuth: true
-    }).then(
-        result => {
-            console.log("Email send result:", result);
-            if (result === "OK") {
-                alert("Your message has been sent successfully!");
-                document.querySelector('.contact-form').reset();
-            } else {
-                alert("There was an issue sending your message. Please try again.");
-                console.error("Unexpected result from Email.send:", result);
-            }
-        }
-    ).catch(
-        error => {
-            console.error("Error in Email.send:", error);
-            alert("Failed to send your message. Please try again later or contact directly via email.");
-        }
-    );
 });
