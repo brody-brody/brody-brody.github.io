@@ -393,6 +393,12 @@ p {
 			transform: translateY(-2px);
 		}
 
+.center-button {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+
 /* Professional Profiles */
 .links a {
 	display: inline-flex;
@@ -417,7 +423,7 @@ p {
 
 /* Footer Styles */
 .site-footer {
-	margin-top: 30px;
+	margin-top: 60px;
 	padding-top: 15px;
 	padding-bottom: 50px;
 	border-top: 1px solid #2e2e2e;
