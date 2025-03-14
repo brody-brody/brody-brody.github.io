@@ -1,0 +1,442 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: repeating-linear-gradient(-45deg, #540a00 15px, #660d01 22px, #851101 10px, #330601 11px);
+}
+
+body {
+	font-family: 'Fira Sans', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.container {
+	background-color: white;
+	border: 4px solid #2e2e2e;
+	border-radius: 0;
+	padding: 30px 40px;
+	margin-top: 0px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	width: 90%;
+	max-width: 900px;
+	min-height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+h1 {
+	font-size: 2.75rem;
+	margin-bottom: -10px;
+	color: #333333;
+}
+
+p {
+	font-size: 1.25rem;
+	color: #444444;
+	margin-bottom: 15px;
+}
+
+.education-info {
+	font-size: 0.9rem;
+	color: #666666;
+	margin-bottom: -15px;
+	margin-top: 10px;
+}
+
+.links {
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+	.links a {
+		display: inline-block;
+		padding: 8px 15px;
+		background-color: #666666;
+		color: white;
+		text-decoration: none;
+		border-radius: 5px;
+		font-weight: 500;
+		transition: all 0.2s ease;
+	}
+
+		.links a:hover {
+			transform: translateY(-2px);
+		}
+
+.linkedin {
+	background-color: #666666;
+	display: flex;
+	justify-content: flex-start;
+	gap: 20px;
+}
+
+	.linkedin:hover {
+		background-color: #0077B5; /* LinkedIn Blue */
+	}
+
+.itch {
+	background-color: #666666;
+	display: flex;
+	justify-content: flex-start;
+	gap: 20px;
+}
+
+	.itch:hover {
+		background-color: #FA5C5C; /* Itch.io's 'Itchy Carnation' */
+	}
+
+/* Tab Styles */
+.tabs {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.tab-btn {
+	padding: 10px 15px;
+	border: none;
+	background-color: #666666;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 500;
+	transition: all 0.2s ease;
+}
+
+	.tab-btn:hover {
+		transform: translateY(-2px);
+	}
+
+	.tab-btn.active {
+		background-color: #851101;
+	}
+
+.tab-content {
+	display: none;
+	text-align: left;
+}
+
+	.tab-content.active {
+		display: block;
+	}
+
+/* Headshot Styles */
+.about-header {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.headshot {
+	width: 200px;
+	height: 300px;
+	border-radius: 16px;
+	object-fit: cover;
+	border: 3px solid #2e2e2e;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Photo Gallery for About Me Section */
+.photo-gallery {
+	margin-top: 30px;
+	text-align: center;
+}
+
+	.photo-gallery h3 {
+		margin-bottom: 20px;
+		color: #333333;
+	}
+
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 20px;
+	margin-top: 15px;
+}
+
+.gallery-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.gallery-image {
+	width: 100%;
+	height: 150px;
+	object-fit: contain;
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	border: 2px solid #2e2e2e;
+	transition: transform 0.2s ease;
+	cursor: pointer;
+}
+
+	.gallery-image:hover {
+		transform: scale(1.05);
+	}
+
+.image-caption {
+	margin-top: 8px;
+	font-size: 0.9rem;
+	color: #555555;
+	text-align: center;
+}
+
+/* Make the gallery responsive */
+@media (max-width: 600px) {
+	.gallery-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.gallery-item {
+		max-width: 300px;
+		margin: 0 auto;
+	}
+}
+
+/* Expandable Image Styles */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+	.overlay.active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+.overlay-image {
+	max-width: 90%;
+	max-height: 90%;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	transform: scale(0.9);
+	transition: transform 0.3s ease;
+}
+
+.overlay.active .overlay-image {
+	transform: scale(1);
+}
+
+.close-overlay {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: white;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+/* Project Card Styles */
+.project-card {
+	border: 2px solid #2e2e2e;
+	border-radius: 10px;
+	padding: 15px;
+	margin-bottom: 20px;
+	background-color: #f9f9f9;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	cursor: pointer;
+}
+
+	.project-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	}
+
+.view-project {
+	display: inline-block;
+	margin-top: 10px;
+	color: #851101;
+	font-weight: 500;
+}
+
+.project-card:hover .view-project {
+	text-decoration: underline;
+}
+
+/* Skills Section */
+.skills-list {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.skill {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 1.2rem;
+	font-weight: normal;
+	color: #333;
+	gap: 10px;
+}
+
+	/* Devicon Icons */
+	.skill i {
+		font-size: 2rem;
+		color: #851101;
+	}
+
+#skills {
+	padding-bottom: 100px;
+}
+
+/* Progress Bar */
+.progress-bar {
+	width: 100%;
+	max-width: 650px;
+	height: 10px;
+	background-color: #ddd;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+}
+
+.progress-fill {
+	height: 100%;
+	background-color: #851101;
+	border-radius: 5px;
+	width: 0; /* Default width (will animate in JS) */
+	transition: width 1s ease-in-out;
+}
+
+/* Resume & Contact Styles */
+.resume-section {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin-bottom: 20px;
+}
+
+.resume-preview {
+	width: 150px;
+	height: 200px;
+	border: 1px solid #ccc;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.resume-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.resume-download {
+	color: #851101;
+	font-size: 16px;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+	.resume-download:hover {
+		text-decoration: underline;
+	}
+
+.last-updated {
+	font-size: 8px;
+	color: #777;
+}
+
+/* Contact Form */
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+	.contact-form input,
+	.contact-form textarea {
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 16px;
+		width: 100%;
+	}
+
+	.contact-form button {
+		background-color: #851101;
+		color: white;
+		padding: 12px;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+		.contact-form button:hover {
+			background-color: #a51212;
+		}
+
+/* Professional Profiles */
+.links a {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: #851101;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+	.links a:hover {
+		text-decoration: underline;
+	}
+
+/* Icons */
+.fas, .fab {
+	font-size: 18px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+	.container {
+		width: 90%;
+		padding: 20px;
+	}
+
+	.tabs {
+		flex-wrap: wrap;
+	}
+
+	h1 {
+		font-size: 2.2rem;
+	}
+
+	p {
+		font-size: 1.1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		width: 95%;
+		padding: 15px;
+		margin-top: -30px;
+	}
+
+	.headshot {
+		width: 150px;
+		height: 150px;
+	}
+}
