@@ -146,6 +146,70 @@ p {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Updated About Me Section Styles */
+.about-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 30px;
+}
+
+.resources-section {
+	width: 35%;
+	padding: 15px;
+	background-color: #f9f9f9;
+	border: 2px solid #2e2e2e;
+	border-radius: 10px;
+	margin-right: 20px;
+}
+
+	.resources-section h4 {
+		color: #851101;
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 1.1rem;
+		text-align: center;
+	}
+
+.resource-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+	.resource-list li {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+		font-size: 0.9rem;
+		color: #444;
+	}
+
+	.resource-list i {
+		color: #851101;
+		margin-right: 10px;
+		font-size: 1rem;
+		width: 20px;
+		text-align: center;
+	}
+
+.about-header {
+	width: 60%;
+}
+
+.about-tagline {
+	font-style: italic;
+	color: #851101;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 1.2rem;
+}
+
+.highlight {
+	font-weight: 500;
+	color: #851101;
+}
+
 /* Photo Gallery for About Me Section */
 .photo-gallery {
 	margin-top: 30px;
@@ -480,5 +544,35 @@ p {
 	.headshot {
 		width: 150px;
 		height: 150px;
+	}
+}
+
+/* Responsive Design for New Layout */
+@media (max-width: 768px) {
+	.about-content {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.resources-section {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+
+	.about-header {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.about-tagline {
+		font-size: 1rem;
+	}
+
+	.resource-list li {
+		font-size: 0.8rem;
 	}
 }
