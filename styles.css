@@ -371,6 +371,7 @@ p {
 		padding: 10px;
 		border: 1px solid #ccc;
 		border-radius: 4px;
+		padding: 12px;
 		font-size: 16px;
 		width: 100%;
 	}
@@ -393,15 +394,15 @@ p {
 .links a {
 	display: inline-flex;
 	align-items: center;
-	gap: 8px;
-	color: #851101;
+	justify-content: left;
+	color: #666666;
 	text-decoration: none;
 	font-size: 16px;
 }
 
-	.links a:hover {
-		text-decoration: underline;
-	}
+#links a {
+	padding-bottom: 100px;
+}
 
 /* Icons */
 .fas, .fab {
