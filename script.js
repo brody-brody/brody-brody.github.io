@@ -101,7 +101,7 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
         To: 'brodysilva.dev@gmail.com',
         From: 'brodysilva.dev@gmail.com',
         ReplyTo: email,
-        Subject: `Portfolio Contact from ${name}`,
+        Subject: 'Portfolio Contact from ${name}',
         Body: message,
         SMTPAuth: true
     }).then(
