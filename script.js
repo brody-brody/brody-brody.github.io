@@ -91,7 +91,7 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
         From: 'brodysilva.dev@gmail.com',
         ReplyTo: email,
         Subject: `New message from ${name}`,
-        Body: '<strong>Name:</strong>${name}<br><strong>Email:</strong>${email}<br><strong>Message:</strong>${message}<br>'
+        Body: message
     }).then(
         message => {
             alert("Message sent successfully!");
