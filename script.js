@@ -84,7 +84,9 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
     const message = document.querySelector('textarea[name="message"]').value;
 
     Email.send({
-        SecureToken: "ae170b0f-e907-478c-bc0d-2cfe5d6fb3e2",
+        Host: "HOST_TOKEN",
+        Username: "USER_TOKEN",
+        Password: "PASS_TOKEN",
         To: 'brodysilva.dev@gmail.com',
         From: email,
         Subject: `New message from ${name}`,
