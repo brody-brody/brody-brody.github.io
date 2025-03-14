@@ -94,7 +94,7 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
 
 
     Email.send({
-        Host: "HOST_TOKEN",
+        Host: "smtp.elasticemail.com",
         Username: "USER_TOKEN",
         Password: "PASS_TOKEN",
         To: 'brodysilva.dev@gmail.com',
