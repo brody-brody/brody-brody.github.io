@@ -88,21 +88,22 @@ document.addEventListener('DOMContentLoaded', function () {
             submitButton.disabled = true;
             submitButton.textContent = "Sending...";
 
-            const formData = new FormData(this);
-            const formAction = this.getAttribute('action');
+            // Use URLSearchParams instead of JSON for FormSubmit
+            const formData = new FormData(form);
+            const searchParams = new URLSearchParams();
 
-            // Convert FormData to URL encoded string for FormSubmit
-            const data = Array.from(formData.entries()).reduce((data, [key, value]) => {
-                data[key] = value;
-                return data;
-            }, {});
+            for (const pair of formData) {
+                searchParams.append(pair[0], pair[1]);
+            }
 
-            fetch(formAction, {
+            // Add FormSubmit's required parameter for AJAX submissions
+            searchParams.append('_ajax', 'true');
+
+            fetch('https://formsubmit.co/brodysilva.dev@gmail.com', {
                 method: 'POST',
-                body: JSON.stringify(data),
+                body: searchParams,
                 headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 }
             })
                 .then(response => {
@@ -110,12 +111,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         alert('Message sent successfully!');
                         form.reset();
                     } else {
-                        throw new Error('Something went wrong');
+                        throw new Error('Response was not ok');
                     }
                 })
                 .catch(error => {
+                    console.error('Error:', error);
                     alert('There was an error sending your message. Please try again.');
-                    console.error(error);
                 })
                 .finally(() => {
                     submitButton.disabled = false;
