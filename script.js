@@ -94,10 +94,9 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
 
 
     Email.send({
-        Host: "smtp.gmail.com",
-        Username: "brodysilva.dev@gmail.com",
-        Password: "SMTP_GMAIL_TOKEN",
-        Port: 587,
+        Host: "HOST_TOKEN",
+        Username: "USER_TOKEN",
+        Password: "PASS_TOKEN",
         To: 'brodysilva.dev@gmail.com',
         From: 'brodysilva.dev@gmail.com',
         ReplyTo: email,
