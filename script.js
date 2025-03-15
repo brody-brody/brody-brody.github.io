@@ -59,18 +59,30 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const progressBars = document.querySelectorAll(".progress-fill");
+// Skills Toggle Functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const skillItems = document.querySelectorAll('.skill-item');
 
-    function checkScroll() {
-        progressBars.forEach(bar => {
-            const rect = bar.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 50) {
-                bar.style.width = bar.getAttribute("style").match(/width:\s*(\d+%)/)[1];
+    skillItems.forEach(item => {
+        const header = item.querySelector('.skill-header');
+
+        header.addEventListener('click', function () {
+            // If this item is already active
+            if (item.classList.contains('active')) {
+                // Close it
+                item.classList.remove('active');
+                return;
             }
-        });
-    }
 
-    window.addEventListener("scroll", checkScroll);
-    checkScroll(); // Run once on load
+            // Close all other open items
+            skillItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Open this item
+            item.classList.add('active');
+        });
+    });
 });
