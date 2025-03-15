@@ -559,7 +559,6 @@ p {
 /* Resume & Contact Styles */
 .resume-section {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	gap: 20px;
 	margin-bottom: 20px;
@@ -576,24 +575,7 @@ p {
 .resume-info {
 	display: flex;
 	flex-direction: column;
-}
-
-.resume-download {
-	color: #851101;
-	font-size: 16px;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	gap: 8px;
-}
-
-	.resume-download:hover {
-		text-decoration: underline;
-	}
-
-.last-updated {
-	font-size: 8px;
-	color: #777;
+	gap: 10px;
 }
 
 .download-button {
@@ -616,6 +598,24 @@ p {
 	.download-button:hover {
 		transform: translateY(-2px);
 	}
+
+.last-updated {
+	font-size: 0.8rem;
+	color: #777;
+	margin-top: 5px;
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 600px) {
+	.resume-section {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.resume-info {
+		align-items: center;
+	}
+}
 
 /* Contact Form */
 .contact-form {
