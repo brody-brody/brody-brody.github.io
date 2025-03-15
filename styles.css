@@ -453,10 +453,22 @@ p {
 	color: #851101;
 }
 
-.view-details {
+.details-control {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.view-details-text {
 	color: #851101;
 	font-weight: 500;
 	font-size: 0.9rem;
+}
+
+.arrow-icon {
+	color: #851101;
+	font-size: 0.8rem;
+	transition: transform 0.3s ease;
 }
 
 .skill-details {
@@ -476,7 +488,7 @@ p {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-	.skill-item.active .view-details {
+	.skill-item.active .arrow-icon {
 		transform: rotate(180deg);
 	}
 
@@ -528,7 +540,7 @@ p {
 		font-size: 1.6rem;
 	}
 
-	.view-details {
+	.view-details-text {
 		font-size: 0.8rem;
 	}
 }
