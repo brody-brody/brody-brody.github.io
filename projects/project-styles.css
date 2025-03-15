@@ -1,6 +1,7 @@
 /* Project Page Specific Styles */
 
 .project-header {
+    margin-top: 30px;
     display: flex;
     align-items: center;
     margin-bottom: 30px;
