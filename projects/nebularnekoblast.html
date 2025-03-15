@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- prohibit browser from caching site, mostly for rapid development -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Fira Sans font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Geo:ital@0;1&display=swap" rel="stylesheet">
+    <!-- favicon support for all devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <!-- link to project page CSS file -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="project-styles.css">
+    <!-- site title in tab -->
+    <title>Nebular Neko Blast - Brody Silva</title>
+</head>
+<body>
+    <div class="container">
+        <div class="project-header">
+            <a href="../index.html" class="back-button">← Back to Portfolio</a>
+            <h1 class="project-title">Nebular Neko Blast</h1>
+        </div>
+
+        <div class="project-content">
+            <div class="project-info">
+                <div class="project-image">
+                    <img src="../images/nebularnekoblast/nnbcoverimage.jpg" alt="Project Name" class="project-cover">
+                </div>
+
+                <div class="project-details">
+                    <div class="detail-item">
+                        <h4>Project Type</h4>
+                        <p>Game</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>Unity, C#, Jira, Confluence, Bitbucket</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Date Created</h4>
+                        <p>March 2025</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Links</h4>
+                        <p>
+                            <a href="https://theportalpotato.itch.io/nebular-neko-blast" target="_blank">Play the Game</a>
+                        </p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Team Members</h4>
+                        <p>Anthony Nguyen - Producer</p>
+                        <p>Maxwell Totten - Designer</p>
+                        <p>Daniel Rabinowitz - Designer</p>
+                        <p>Brendan Peters - Sound Designer</p>
+                        <p>Joey Tufano - Artist</p>
+                        <p>Brody Silva - Programmer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-video">
+                <h2>Project Demo</h2>
+                <video controls width="100" poster="../images/nebularnekoblast/nnbtitlescreen.png">
+                    <source src="../videos/nebularnekoblast/nnbdemo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-caption">Our game trailer, also viewable on the itch.io page</p>
+            </div>
+
+            <div class="project-description">
+                <h2>About the Project</h2>
+                <p>Tasked to make a game using the verbs decrease and evade in just 4 weeks, our team chose to create a retro 2D bullet hell with our own unique movement mechanics, shrinking and growing. Inspired by some internet culture including alien cats and small dogs, we crafted this game. You play as the alien cat, Gnarpznap, fighting off the big boss, Eeble Geeble against an invasion threatening the world.</p>
+
+                <h2>Features</h2>
+                <ul>
+                    <li>Feature 1: Shrinking and growing movement mechanics to both evade and absorb bullets</li>
+                    <li>Feature 2: Boss transition animations</li>
+                    <li>Feature 3: Easily expandable architecture for future growth</li>
+                </ul>
+
+                <h2>Development Process</h2>
+                <p>Most of the development process went very smoothly on this project, as our goals were scoped well within what we thought we could reach. My favorite element of development was the easily expandable bullet pattern system using scriptable objects. An abstract base class, bullet pattern, allowed me to derive multiple types of patterns with easy expandability, and then a separate scriptable object, bullet pattern group, allowed the chaining of patterns at different intervals and weights. A designer could open the editor and create an entire set of boss attack patterns, including different pattern pools for different phases, all without writing a single line of code.</p>
+
+                <div class="gallery">
+                    <h2>Screenshots</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="../images/nebularnekoblast/nnbpatterntool.jpg" alt="Bullet Pattern Tool" class="gallery-image">
+                            <p class="image-caption">A brief look at the bullet pattern tool</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../images/nebularnekoblast/nnbtitlescreen.jpg" alt="Title Screen" class="gallery-image">
+                            <p class="image-caption">The title screen</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../images/nebularnekoblast/nnbgameplay.jpg" alt="Gameplay" class="gallery-image">
+                            <p class="image-caption">A gameplay screenshot</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>What I Learned</h2>
+                <ul>
+                    <li>An in-depth and deep understanding of scriptable objects and inspector elements</li>
+                    <li>DOTween easing functions for smooth transitions and simple animations</li>
+                    <li>Working in a multidiscipline team and executing proper agile scrum methodologies</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="project-script.js"></script>
+</body>
+</html>
