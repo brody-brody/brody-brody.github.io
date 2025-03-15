@@ -133,8 +133,7 @@ p {
 /* Headshot Styles */
 .about-header {
 	display: flex;
-	justify-content: center;
-	margin-bottom: 20px;
+	justify-content: flex-start;
 }
 
 .headshot {
@@ -146,25 +145,24 @@ p {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Updated About Me Section Styles */
+/* About Me Section Styles */
 .about-content {
 	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 30px;
-	gap: 20px;
+	width: 100%;
 }
 
 .resources-section {
-	width: 45%;
+	background-color: white;
+	border: 3px solid #2e2e2e;
+	border-radius: 16px;
 	padding: 15px;
-	background-color: #f9f9f9;
-	border: 2px solid #2e2e2e;
-	border-radius: 10px;
-	height: 300px; /* Match the height of your headshot */
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+	margin-left: 20px;
+	width: auto;
+	max-width: 60%;
 }
 
 	.resources-section h4 {
@@ -189,6 +187,10 @@ p {
 		color: #444;
 	}
 
+		.resource-list li:last-child {
+			margin-bottom: 0;
+		}
+
 	.resource-list i {
 		color: #851101;
 		margin-right: 10px;
@@ -196,12 +198,6 @@ p {
 		width: 20px;
 		text-align: center;
 	}
-
-.about-header {
-	width: 45%;
-	display: flex;
-	justify-content: center;
-}
 
 .about-tagline {
 	font-style: italic;
@@ -553,7 +549,6 @@ p {
 		height: 150px;
 	}
 }
-
 /* Responsive Design for New Layout */
 @media (max-width: 768px) {
 	.about-content {
@@ -562,15 +557,9 @@ p {
 	}
 
 	.resources-section {
-		width: 100%;
-		margin-right: 0;
-		margin-bottom: 20px;
-	}
-
-	.about-header {
-		width: 100%;
-		display: flex;
-		justify-content: center;
+		margin-left: 0;
+		margin-top: 20px;
+		max-width: 100%;
 	}
 }
 
