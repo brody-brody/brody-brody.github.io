@@ -65,24 +65,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
     skillItems.forEach(item => {
         const header = item.querySelector('.skill-header');
+        const details = item.querySelector('.skill-details');
+
+        // Store the actual height of each details section
+        details.style.maxHeight = '0px';
+        details.style.paddingTop = '0px';
+        details.style.paddingBottom = '0px';
 
         header.addEventListener('click', function () {
             // If this item is already active
             if (item.classList.contains('active')) {
-                // Close it
-                item.classList.remove('active');
-                return;
+                // Close it with animation
+                details.style.maxHeight = '0px';
+                details.style.paddingTop = '0px';
+                details.style.paddingBottom = '0px';
+
+                // Remove active class after transition completes
+                setTimeout(() => {
+                    item.classList.remove('active');
+                }, 300); // Match this to your transition duration
+            } else {
+                // Close all other open items first
+                skillItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        const otherDetails = otherItem.querySelector('.skill-details');
+                        otherDetails.style.maxHeight = '0px';
+                        otherDetails.style.paddingTop = '0px';
+                        otherDetails.style.paddingBottom = '0px';
+
+                        setTimeout(() => {
+                            otherItem.classList.remove('active');
+                        }, 300);
+                    }
+                });
+
+                // Open this item with smooth animation
+                item.classList.add('active');
+                const contentHeight = details.scrollHeight;
+                details.style.maxHeight = contentHeight + 'px';
+                details.style.paddingTop = '0px';
+                details.style.paddingBottom = '15px';
             }
-
-            // Close all other open items
-            skillItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
-                }
-            });
-
-            // Open this item
-            item.classList.add('active');
         });
     });
 });

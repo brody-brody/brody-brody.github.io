@@ -475,13 +475,14 @@ p {
 	padding: 0 15px;
 	max-height: 0;
 	overflow: hidden;
-	transition: max-height 0.5s ease, padding 0.5s ease;
+	transition: max-height 0.3s ease, padding 0.3s ease;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 .skill-item.active .skill-details {
-	max-height: 500px;
-	padding: 15px;
-	padding-top: 0;
+	/* Remove the fixed max-height - the JS will handle this dynamically */
+	padding: 0 15px 15px 15px;
 }
 
 .skill-item.active {
