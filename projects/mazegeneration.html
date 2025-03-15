@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- prohibit browser from caching site, mostly for rapid development -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Fira Sans font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Geo:ital@0;1&display=swap" rel="stylesheet">
+    <!-- favicon support for all devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <!-- link to project page CSS file -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="project-styles.css">
+    <!-- site title in tab -->
+    <title>3D Maze Generation - Brody Silva</title>
+</head>
+<body>
+    <div class="container">
+        <div class="project-header">
+            <a href="../index.html" class="back-button">← Back to Portfolio</a>
+            <h1 class="project-title">3D Maze Graphics Demo</h1>
+        </div>
+
+        <div class="project-content">
+            <div class="project-info">
+                <div class="project-image">
+                    <img src="../images/mazegeneration/mazegencoverimage.png" alt="Project Name" class="project-cover">
+                </div>
+
+                <div class="project-details">
+                    <div class="detail-item">
+                        <h4>Project Type</h4>
+                        <p>Graphics Demo</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>C++, OpenGL</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Date Created</h4>
+                        <p>December 2024</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Links</h4>
+                        <p>Repository Available Upon Request</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Team Members</h4>
+                        <p>Noah Freedley - Programmer</p>
+                        <p>Christopher Eichert - Programmer</p>
+                        <p>Seth Riddensdale - Programmer</p>
+                        <p>Brody Silva - Programmer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-video">
+                <h2>Project Demo</h2>
+                <video controls width="100" poster="../images/mazegeneration/mazegenvideocover.png">
+                    <source src="../videos/mazegeneration/mazegendemo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-caption">A short video of the functionalities of this demo</p>
+            </div>
+
+            <div class="project-description">
+                <h2>About the Project</h2>
+                <p>After a semester of learning different OpenGL techniques, our final was an open-ended project simply tasking us to create some graphics demonstration using whatever techniques we would like. We ended up deciding on rendering a 3D maze that you can navigate through, and we accomplished this through turning 2D matrices in code into 3D meshes, and allowing for a wide range of customized lighting and shading.</p>
+
+                <h2>Features</h2>
+                <ul>
+                    <li>Generating a 3D maze from a 2D matrix, allowing for navigation through the maze in player mode, or flying around in free-cam</li>
+                    <li>Graphics settings including: light variable control, toon shading, rimlight shading, pixelation shading, dither shading, and fog</li>
+                    <li>Dynamically switch between preset mazes during runtime</li>
+                </ul>
+
+                <h2>Development Process</h2>
+                <p>After an even distribution of work was decided, we begun the project by rendering the maze in 2D. From there, I programmed in optimizations to remove unnecessary vertices within the maze at runtime, saving the number of drawn faces and vertices stored. After converting our 2D mazes into 3D, we developed more shading settings, added textures and movement options, and an encompassing cubemap, and finally we used Dear ImGui for our settings tab.</p>
+
+                <div class="gallery">
+                    <h2>Screenshots</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="../images/mazegeneration/mazegeniterations.png" alt="Iterations of the project, with rendering code" class="gallery-image">
+                            <p class="image-caption">A brief look at the bullet pattern tool</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../images/mazegeneration/mazegenfreecam.png" alt="A screenshot using the free-cam, and some settings turned on" class="gallery-image">
+                            <p class="image-caption">The title screen</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>What I Learned</h2>
+                <ul>
+                    <li>A much deeper understanding of OpenGL</li>
+                    <li>Optimizing mesh drawing through eliminating unnecessary faces and vertices, and using back-face culling</li>
+                    <li>Rendering techniques during run-time</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="overlay" id="imageOverlay">
+            <span class="close-overlay">&times;</span>
+            <img src="" alt="Expanded view" class="overlay-image" id="expandedImg">
+        </div>
+
+        <footer class="site-footer">
+            <p class="footer-text">This website was coded entirely by Brody Silva in HTML, CSS, and JavaScript. For inquiries, contact <a href="mailto:brodysilva.dev@gmail.com" class="footer-link">brodysilva.dev@gmail.com</a></p>
+        </footer>
+
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="project-script.js"></script>
+</body>
+</html>
