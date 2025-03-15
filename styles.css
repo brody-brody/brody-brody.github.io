@@ -558,16 +558,18 @@ p {
 /* Resume & Contact Styles */
 .resume-section {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	gap: 20px;
 	margin-bottom: 20px;
 }
 
 .resume-preview {
-	width: 231px; /* adjusting to 8.5 / 11 aspect ratio */
+	width: 231px;
 	height: 300px;
 	border: 4px solid #2e2e2e;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	object-fit: cover;
 }
 
 .resume-info {
@@ -592,6 +594,27 @@ p {
 	font-size: 8px;
 	color: #777;
 }
+
+.download-button {
+	background-color: #851101;
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: 500;
+	transition: all 0.2s ease;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+	.download-button:hover {
+		transform: translateY(-2px);
+	}
 
 /* Contact Form */
 .contact-form {
