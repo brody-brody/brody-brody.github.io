@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 100);
 
                 // Wait before deleting
-                setTimeout(deleteText, 8000);
+                setTimeout(deleteText, 5000);
             }
         }, 100);
     }
