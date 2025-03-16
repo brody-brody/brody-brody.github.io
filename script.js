@@ -1,4 +1,4 @@
-// event listeners for tab functionality
+﻿// event listeners for tab functionality
 document.addEventListener('DOMContentLoaded', function () {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -164,14 +164,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to ensure fonts are loaded before starting animation
     function preloadFonts() {
         return new Promise((mainResolve) => {
-            // For web fonts API
             if (document.fonts && document.fonts.ready) {
                 document.fonts.ready.then(() => {
-                    // Add a small delay to ensure rendering
                     setTimeout(mainResolve, 200);
                 });
             } else {
-                // Fallback for browsers without font loading API
                 setTimeout(mainResolve, 500);
             }
         });
@@ -179,99 +176,121 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Set font before typing begins
     function setCurrentFont() {
-        // Set current font immediately
         typedTextElement.style.fontFamily = fonts[fontIndex].name;
         typedTextElement.style.fontWeight = fonts[fontIndex].weight;
-
-        // Update cursor height to match current font
         updateCursorHeight();
     }
 
     // Update cursor height based on current font
     function updateCursorHeight() {
-        // Use a temporary element to measure font height
         const tempSpan = document.createElement('span');
-        tempSpan.textContent = 'M'; // Capital M is typically a good height reference
+        tempSpan.textContent = 'M';
         tempSpan.style.fontFamily = fonts[fontIndex].name;
         tempSpan.style.fontWeight = fonts[fontIndex].weight;
         tempSpan.style.fontSize = getComputedStyle(typedTextElement).fontSize;
         tempSpan.style.visibility = 'hidden';
-        typedTextElement.parentNode.appendChild(tempSpan);
+        document.body.appendChild(tempSpan);
 
-        // Set cursor height based on the temp element
         const height = tempSpan.offsetHeight;
         cursorElement.style.height = height + 'px';
 
-        // Clean up
-        typedTextElement.parentNode.removeChild(tempSpan);
+        document.body.removeChild(tempSpan);
     }
 
-    // Type effect with letter-by-letter animation, but no wave until complete
-    function typeText() {
-        // Clear any existing content
-        typedTextElement.innerHTML = '';
+    // Start wave animation for all characters using JavaScript
+    function startWaveAnimation(characters) {
+        const waveStep = 0.2; // How much to offset each character's wave
+        const waveHeight = 3; // Maximum pixels to move up/down
+        const duration = 2000; // Complete cycle in ms
 
-        // Set font immediately before typing starts
+        characters.forEach((charSpan, index) => {
+            // Each character gets a different starting point in the sine wave
+            const offset = index * waveStep;
+
+            function animateChar(timestamp) {
+                // Calculate position in the wave (0 to 2pi)
+                const progress = ((timestamp % duration) / duration) * 2 * Math.PI;
+                // Calculate y position using sine wave (-1 to 1) * height
+                const y = Math.sin(progress + offset) * waveHeight;
+
+                // Apply the transform
+                charSpan.style.transform = "translateY(" + y + "px)";
+
+                // Continue the animation
+                requestAnimationFrame(animateChar);
+            }
+
+            // Start the animation
+            requestAnimationFrame(animateChar);
+        });
+    }
+
+    // Type effect with normal typing and separate wave animation
+    function typeText() {
+        typedTextElement.innerHTML = '';
         setCurrentFont();
 
+        // Center container and add wrapper for centering
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'inline-block';
+        wrapper.style.textAlign = 'center';
+        typedTextElement.appendChild(wrapper);
+
         let charIndex = 0;
-        const allChars = []; // Store all character spans
+        const charSpans = [];
 
         const typing = setInterval(() => {
             if (charIndex < name.length) {
-                // Create a span for each character
                 const charSpan = document.createElement('span');
                 charSpan.textContent = name.charAt(charIndex);
 
-                // Add to our collection but don't add the wave class yet
-                allChars.push(charSpan);
+                // Store for later animation
+                charSpans.push(charSpan);
 
                 // If it's a space, make sure it's preserved
                 if (name.charAt(charIndex) === ' ') {
                     charSpan.style.display = 'inline-block';
-                    charSpan.style.width = '0.3em'; // Ensure the space has width
+                    charSpan.style.width = '0.3em';
                 }
 
-                typedTextElement.appendChild(charSpan);
+                wrapper.appendChild(charSpan);
                 charIndex++;
             } else {
                 clearInterval(typing);
 
-                // Now that all characters are typed, add the wave class to each one
-                // with a slight delay for a cascading effect
-                allChars.forEach((char, index) => {
-                    setTimeout(() => {
-                        char.classList.add('wave-char');
-                        char.style.animationDelay = (index * 0.08) + "s";
-                    }, 50); // Short delay before waves start
-                });
+                // Only start wave animation after typing is complete
+                setTimeout(() => {
+                    startWaveAnimation(charSpans);
+                }, 100);
 
                 // Wait before deleting
                 setTimeout(deleteText, 8000);
             }
-        }, 100); // Typing speed (ms)
+        }, 100);
     }
 
     // Delete effect
     function deleteText() {
-        let charIndex = typedTextElement.children.length;
+        const wrapper = typedTextElement.firstChild;
+        let charIndex = wrapper.children.length;
 
         const deleting = setInterval(() => {
             if (charIndex > 0) {
-                typedTextElement.removeChild(typedTextElement.children[charIndex - 1]);
+                wrapper.removeChild(wrapper.children[charIndex - 1]);
                 charIndex--;
             } else {
                 clearInterval(deleting);
+                typedTextElement.removeChild(wrapper);
+
                 // Move to next font
                 fontIndex = (fontIndex + 1) % fonts.length;
 
                 // Short pause before typing again
                 setTimeout(() => {
-                    setCurrentFont();
                     typeText();
                 }, 300);
             }
-        }, 50); // Deleting speed (ms)
+        }, 50);
     }
 
     // Cursor blinking effect
