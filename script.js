@@ -151,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
         { name: 'ANDYB', weight: 'normal' },
         { name: 'FEASFBRG', weight: 'normal' },
         { name: 'HyliaSerif', weight: 'normal' },
-        { name: 'Legothick', weight: 'normal' },
         { name: 'm6x11', weight: 'normal' },
         { name: 'MinecraftTen', weight: 'normal' },
         { name: 'SuperMario256', weight: 'normal' }
@@ -160,6 +159,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const typedTextElement = document.querySelector('.typed-text');
     const cursorElement = document.querySelector('.cursor');
     let fontIndex = 0;
+
+    // Global animation variables
+    let waveAnimationRunning = false;
+    let startTime = null;
 
     // Function to ensure fonts are loaded before starting animation
     function preloadFonts() {
@@ -197,55 +200,60 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.removeChild(tempSpan);
     }
 
-    // Start wave animation for all characters using JavaScript
-    function startWaveAnimation(characters) {
-        const waveStep = 0.2; // How much to offset each character's wave
-        const waveHeight = 3; // Maximum pixels to move up/down
-        const duration = 2000; // Complete cycle in ms
+    // SIMPLIFIED WAVE ANIMATION - direct approach
+    function animateWave() {
+        if (!waveAnimationRunning) return;
 
-        characters.forEach((charSpan, index) => {
-            // Each character gets a different starting point in the sine wave
-            const offset = index * waveStep;
+        // Get all character spans
+        const charSpans = typedTextElement.querySelectorAll('span');
+        if (charSpans.length === 0) return;
 
-            function animateChar(timestamp) {
-                // Calculate position in the wave (0 to 2pi)
-                const progress = ((timestamp % duration) / duration) * 2 * Math.PI;
-                // Calculate y position using sine wave (-1 to 1) * height
-                const y = Math.sin(progress + offset) * waveHeight;
+        // Setup animation parameters
+        const amplitude = 3; // Height of wave in pixels
+        const frequency = 2; // Speed of the wave
+        const now = Date.now();
+        if (startTime === null) startTime = now;
+        const elapsed = now - startTime;
 
-                // Apply the transform
-                charSpan.style.transform = "translateY(" + y + "px)";
+        // Apply wave effect to each character
+        charSpans.forEach((span, index) => {
+            // Calculate y position for this character
+            // Each character is at a different point in the wave based on position
+            const characterOffset = index * 0.3; // Space characters out in the wave
+            const y = amplitude * Math.sin((elapsed / 1000 * frequency) + characterOffset);
 
-                // Continue the animation
-                requestAnimationFrame(animateChar);
-            }
-
-            // Start the animation
-            requestAnimationFrame(animateChar);
+            // Apply the vertical offset
+            span.style.transform = "translateY(" + y + "px)";
         });
+
+        // Continue the animation
+        requestAnimationFrame(animateWave);
     }
 
-    // Type effect with normal typing and separate wave animation
+    // Start the wave animation
+    function startWave() {
+        if (waveAnimationRunning) return;
+        waveAnimationRunning = true;
+        startTime = null;
+        requestAnimationFrame(animateWave);
+    }
+
+    // Stop the wave animation
+    function stopWave() {
+        waveAnimationRunning = false;
+    }
+
+    // Type effect with normal typing
     function typeText() {
         typedTextElement.innerHTML = '';
         setCurrentFont();
 
-        // Center container and add wrapper for centering
-        const wrapper = document.createElement('div');
-        wrapper.style.display = 'inline-block';
-        wrapper.style.textAlign = 'center';
-        typedTextElement.appendChild(wrapper);
-
         let charIndex = 0;
-        const charSpans = [];
 
         const typing = setInterval(() => {
             if (charIndex < name.length) {
                 const charSpan = document.createElement('span');
                 charSpan.textContent = name.charAt(charIndex);
-
-                // Store for later animation
-                charSpans.push(charSpan);
 
                 // If it's a space, make sure it's preserved
                 if (name.charAt(charIndex) === ' ') {
@@ -253,14 +261,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     charSpan.style.width = '0.3em';
                 }
 
-                wrapper.appendChild(charSpan);
+                typedTextElement.appendChild(charSpan);
                 charIndex++;
+
+                // Position cursor after the last character
+                document.getElementById('name-typewriter').insertBefore(
+                    cursorElement,
+                    typedTextElement.nextSibling
+                );
             } else {
                 clearInterval(typing);
 
-                // Only start wave animation after typing is complete
+                // Start wave animation after typing is complete
                 setTimeout(() => {
-                    startWaveAnimation(charSpans);
+                    startWave();
                 }, 100);
 
                 // Wait before deleting
@@ -271,16 +285,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Delete effect
     function deleteText() {
-        const wrapper = typedTextElement.firstChild;
-        let charIndex = wrapper.children.length;
+        // Stop wave animation
+        stopWave();
+
+        let charIndex = typedTextElement.children.length;
 
         const deleting = setInterval(() => {
             if (charIndex > 0) {
-                wrapper.removeChild(wrapper.children[charIndex - 1]);
+                typedTextElement.removeChild(typedTextElement.children[charIndex - 1]);
                 charIndex--;
             } else {
                 clearInterval(deleting);
-                typedTextElement.removeChild(wrapper);
 
                 // Move to next font
                 fontIndex = (fontIndex + 1) % fonts.length;
@@ -300,6 +315,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Start the animation after ensuring fonts are loaded
     preloadFonts().then(() => {
+        // Position cursor initially
+        document.getElementById('name-typewriter').insertBefore(
+            cursorElement,
+            typedTextElement.nextSibling
+        );
+
         typeText();
     });
 });
