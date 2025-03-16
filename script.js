@@ -111,53 +111,50 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Defining name and fonts to cycle through
+    // Define your name including the space
     const name = "Brody Silva";
 
-    // Add your custom fonts here
+    // Custom fonts configuration with your TTF files
     const customFonts = "@font-face {" +
-    "font-family: 'ANDYB';" +
-    "src: url('fonts/ANDYB.ttf') format('truetype');" +
-    "}" +
-    "@font-face {" +
-    "font-family: 'FEASFBRG';" +
-    "src: url('fonts/FEASFBRG.ttf') format('truetype');" +
-    "}" +
-    "@font-face {" +
-    "font-family: 'HyliaSerif';" +
-    "src: url('fonts/HyliaSerif.ttf') format('truetype');" +
-    "}" +
-    "@font-face {" +
-    "font-family: 'Legothick';" +
-    "src: url('fonts/Legothick.ttf') format('truetype');" +
-    "}" +
-    "@font-face {" +
-    "font-family: 'm6x11';" +
-    "src: url('fonts/m6x11.ttf') format('truetype');" +
-    "}" +
-    "@font-face {" +
-    "font-family: 'MinecraftTen';" +
-    "src: url('fonts/MinecraftTen-VGORe.ttf') format('truetype');" +
-    "}" +
-    "@font-face {" +
-    "font-family: 'SuperMario256';" +
-    "src: url('fonts/SuperMario256.ttf') format('truetype');" +
-    "}";
-
-    const fonts = [
-        { name: 'SuperMario256', weight: 'normal' },
-        { name: 'ANDYB', weight: 'normal' },
-        { name: 'FEASFBRG', weight: 'normal' },
-        { name: 'HyliaSerif', weight: 'normal' },
-        { name: 'Legothick', weight: 'normal' },
-        { name: 'm6x11', weight: 'normal' },
-        { name: 'MinecraftTen', weight: 'normal' }
-    ];
+        "font-family: 'ANDYB';" +
+        "src: url('fonts/ANDYB.ttf') format('truetype');" +
+        "}" +
+        "@font-face {" +
+        "font-family: 'FEASFBRG';" +
+        "src: url('fonts/FEASFBRG.ttf') format('truetype');" +
+        "}" +
+        "@font-face {" +
+        "font-family: 'HyliaSerif';" +
+        "src: url('fonts/HyliaSerif.ttf') format('truetype');" +
+        "}" +
+        "@font-face {" +
+        "font-family: 'm6x11';" +
+        "src: url('fonts/m6x11.ttf') format('truetype');" +
+        "}" +
+        "@font-face {" +
+        "font-family: 'MinecraftTen';" +
+        "src: url('fonts/MinecraftTen-VGORe.ttf') format('truetype');" +
+        "}" +
+        "@font-face {" +
+        "font-family: 'SuperMario256';" +
+        "src: url('fonts/SuperMario256.ttf') format('truetype');" +
+        "}";
 
     // Add the custom fonts style to the head
     const styleElement = document.createElement('style');
     styleElement.textContent = customFonts;
     document.head.appendChild(styleElement);
+
+    // Define font array after adding the styles
+    const fonts = [
+        { name: 'Fira Sans', weight: '400' },
+        { name: 'ANDYB', weight: 'normal' },
+        { name: 'FEASFBRG', weight: 'normal' },
+        { name: 'HyliaSerif', weight: 'normal' },
+        { name: 'm6x11', weight: 'normal' },
+        { name: 'MinecraftTen', weight: 'normal' },
+        { name: 'SuperMario256', weight: 'normal' }
+    ];
 
     const typedTextElement = document.querySelector('.typed-text');
     const cursorElement = document.querySelector('.cursor');
@@ -166,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Type effect with letter-by-letter wave animation
     function typeText() {
         // Clear any existing content
-        typedTextElement.textContent = '';
         typedTextElement.innerHTML = '';
 
         // Set current font
@@ -181,8 +177,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 const charSpan = document.createElement('span');
                 charSpan.textContent = name.charAt(charIndex);
                 charSpan.classList.add('wave-char');
-                // Set a different animation delay for each letter based on its position
-                charSpan.style.animationDelay = (charIndex * 0.1) + "s";
+
+                // Different animation phases for each letter
+                charSpan.style.animationDelay = (charIndex * 0.08) + "s";
+
+                // If it's a space, make sure it's preserved
+                if (name.charAt(charIndex) === ' ') {
+                    charSpan.style.display = 'inline-block';
+                    charSpan.style.width = '0.3em'; // Ensure the space has width
+                }
 
                 typedTextElement.appendChild(charSpan);
                 charIndex++;
