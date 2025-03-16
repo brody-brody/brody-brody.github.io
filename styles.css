@@ -2,7 +2,6 @@ html, body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
 	background: repeating-linear-gradient(-45deg, #540a00 15px, #660d01 22px, #851101 10px, #330601 11px);
 }
 
@@ -29,6 +28,8 @@ body {
 	overflow-x: hidden;
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* IE and Edge */
+	min-height: 90vh; /* Slightly less than 100vh */
+	margin: 20px auto; /* Add some margin at top and bottom */
 }
 
 	.container::-webkit-scrollbar {
