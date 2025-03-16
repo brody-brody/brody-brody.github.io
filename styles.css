@@ -98,35 +98,37 @@ p {
 		background-color: #FA5C5C; /* Itch.io's 'Itchy Carnation' */
 	}
 
-/* Typewriter effect styles */
+/* Typewriter container */
 #name-typewriter {
 	display: flex;
 	align-items: center;
-	justify-content: center; /* Center content horizontally */
-	height: 8rem; /* Fixed container height */
+	justify-content: center;
+	width: 100%;
 	position: relative;
-	overflow: visible; /* Allow text to overflow if needed */
+	min-height: 8rem;
+	text-align: center;
 	margin: 1rem 0;
-	width: 100%; /* Ensure it takes full width of its parent */
 }
 
+/* Text container */
 .typed-text {
-	display: inline-flex;
-	align-items: center;
+	display: inline-block;
 	font-size: 6rem;
-	line-height: 1;
-	min-height: 1em;
-	text-align: center; /* Center text */
+	line-height: 1.2;
+	position: relative;
+	text-align: center;
+	width: 100%;
 }
 
+/* Cursor */
 .cursor {
 	display: inline-block;
 	width: 3px;
 	background-color: #333;
-	margin-left: 2px;
+	margin-left: 5px;
 	animation: blink 1s infinite;
-	align-self: center;
-	/* Height will be set dynamically in JavaScript */
+	vertical-align: middle;
+	position: relative;
 }
 
 	.cursor.blink {
@@ -140,55 +142,6 @@ p {
 
 	50%, 100% {
 		opacity: 0;
-	}
-}
-
-/* Mathematically precise sine wave animation for characters */
-.wave-char {
-	display: inline-block;
-	position: relative;
-	animation: preciseSineWave 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-	animation-play-state: running;
-	will-change: transform;
-	backface-visibility: hidden;
-	-webkit-font-smoothing: antialiased;
-}
-
-@keyframes preciseSineWave {
-	0% {
-		transform: translateY(0px);
-	}
-
-	12.5% {
-		transform: translateY(-2.12px);
-	}
-
-	25% {
-		transform: translateY(-3px);
-	}
-
-	37.5% {
-		transform: translateY(-2.12px);
-	}
-
-	50% {
-		transform: translateY(0px);
-	}
-
-	62.5% {
-		transform: translateY(2.12px);
-	}
-
-	75% {
-		transform: translateY(3px);
-	}
-
-	87.5% {
-		transform: translateY(2.12px);
-	}
-
-	100% {
-		transform: translateY(0px);
 	}
 }
 
