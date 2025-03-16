@@ -109,3 +109,119 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Define your name and the fonts you want to cycle through
+    const name = "Brody Silva";
+    const fonts = [
+        { name: 'Fira Sans', weight: '400' },
+        { name: 'Courier New', weight: 'bold' },
+        { name: 'Georgia', weight: '700' },
+        { name: 'Impact', weight: 'normal' },
+        { name: 'Verdana', weight: '500' }
+    ];
+
+    // Add your custom fonts here
+    const customFonts = "@font-face {" +
+    "font-family: 'ANDYB';" +
+    "src: url('fonts/ANDYB.ttf') format('truetype');" +
+    "}" +
+    "@font-face {" +
+    "font-family: 'FEASFBRG';" +
+    "src: url('fonts/FEASFBRG.ttf') format('truetype');" +
+    "}" +
+    "@font-face {" +
+    "font-family: 'HyliaSerif';" +
+    "src: url('fonts/HyliaSerif.ttf') format('truetype');" +
+    "}" +
+    "@font-face {" +
+    "font-family: 'Legothick';" +
+    "src: url('fonts/Legothick.ttf') format('truetype');" +
+    "}" +
+    "@font-face {" +
+    "font-family: 'm6x11';" +
+    "src: url('fonts/m6x11.ttf') format('truetype');" +
+    "}" +
+    "@font-face {" +
+    "font-family: 'MinecraftTen';" +
+    "src: url('fonts/MinecraftTen-VGORe.ttf') format('truetype');" +
+    "}" +
+    "@font-face {" +
+    "font-family: 'SuperMario256';" +
+    "src: url('fonts/SuperMario256.ttf') format('truetype');" +
+    "}";
+
+    const fonts = [
+        { name: 'SuperMario256', weight: 'normal' }
+        { name: 'ANDYB', weight: 'normal' },
+        { name: 'FEASFBRG', weight: 'normal' },
+        { name: 'HyliaSerif', weight: 'normal' },
+        { name: 'Legothick', weight: 'normal' },
+        { name: 'm6x11', weight: 'normal' },
+        { name: 'MinecraftTen', weight: 'normal' },
+    ];
+
+    // Add the custom fonts style to the head
+    const styleElement = document.createElement('style');
+    styleElement.textContent = customFonts;
+    document.head.appendChild(styleElement);
+
+    const typedTextElement = document.querySelector('.typed-text');
+    const cursorElement = document.querySelector('.cursor');
+    let fontIndex = 0;
+
+    // Type effect with letter-by-letter wave animation
+    function typeText() {
+        // Clear any existing content
+        typedTextElement.textContent = '';
+        typedTextElement.innerHTML = '';
+
+        // Set current font
+        typedTextElement.style.fontFamily = fonts[fontIndex].name;
+        typedTextElement.style.fontWeight = fonts[fontIndex].weight;
+
+        let charIndex = 0;
+
+        const typing = setInterval(() => {
+            if (charIndex < name.length) {
+                // Create a span for each character to animate individually
+                const charSpan = document.createElement('span');
+                charSpan.textContent = name.charAt(charIndex);
+                charSpan.classList.add('wave-char');
+                // Set a different animation delay for each letter based on its position
+                charSpan.style.animationDelay = (charIndex * 0.1) + "s";
+
+                typedTextElement.appendChild(charSpan);
+                charIndex++;
+            } else {
+                clearInterval(typing);
+                setTimeout(deleteText, 8000); // Wait 8 seconds before deleting
+            }
+        }, 100); // Typing speed (ms)
+    }
+
+    // Delete effect
+    function deleteText() {
+        let charIndex = typedTextElement.children.length;
+
+        const deleting = setInterval(() => {
+            if (charIndex > 0) {
+                typedTextElement.removeChild(typedTextElement.children[charIndex - 1]);
+                charIndex--;
+            } else {
+                clearInterval(deleting);
+                // Move to next font
+                fontIndex = (fontIndex + 1) % fonts.length;
+                setTimeout(typeText, 500); // Wait 0.5 second before typing again
+            }
+        }, 50); // Deleting speed (ms)
+    }
+
+    // Start the effect
+    typeText();
+
+    // Cursor blinking effect
+    setInterval(() => {
+        cursorElement.classList.toggle('blink');
+    }, 500);
+});
