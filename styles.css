@@ -106,7 +106,8 @@ p {
 }
 
 .typed-text {
-	display: inline-block;
+    display: inline-block;
+    font-size: 2.5rem;
 }
 
 .cursor {
