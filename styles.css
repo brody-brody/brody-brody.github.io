@@ -106,8 +106,7 @@ p {
 }
 
 .typed-text {
-    display: inline-block;
-    font-size: 6rem;
+	display: inline-block;
 }
 
 .cursor {
@@ -132,35 +131,28 @@ p {
 	}
 }
 
-/* Improved Wave animation for characters */
-/* Completely smooth wave animation */
+/* Ultra-smooth wave animation for characters */
 .wave-char {
 	display: inline-block;
 	position: relative;
-	animation: superSmoothWave 1.5s ease-in-out infinite;
+	animation: ultraSmoothWave 1.2s cubic-bezier(0.4, 0.0, 0.6, 1) infinite;
 	animation-play-state: running;
-	will-change: transform; /* Improves animation performance */
+	will-change: transform;
+	backface-visibility: hidden; /* Further optimization */
+	-webkit-font-smoothing: antialiased; /* Better text rendering */
 }
 
-@keyframes superSmoothWave {
+@keyframes ultraSmoothWave {
 	0% {
 		transform: translateY(0);
 	}
 
-	20% {
+	33% {
 		transform: translateY(-2px);
 	}
 
-	40% {
-		transform: translateY(0);
-	}
-
-	60% {
+	66% {
 		transform: translateY(2px);
-	}
-
-	80% {
-		transform: translateY(0);
 	}
 
 	100% {
