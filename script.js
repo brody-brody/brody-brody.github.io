@@ -117,11 +117,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Custom fonts configuration with your TTF files
     const customFonts = "@font-face {" +
         "font-family: 'ANDYB';" +
-        "src: url('fonts/ANDYB.ttf') format('truetype');" +
+        "src: url('fonts/ANDYB.TTF') format('truetype');" +
         "}" +
         "@font-face {" +
         "font-family: 'FEASFBRG';" +
-        "src: url('fonts/FEASFBRG.ttf') format('truetype');" +
+        "src: url('fonts/FEASFBRG.TTF') format('truetype');" +
         "}" +
         "@font-face {" +
         "font-family: 'HyliaSerif';" +
