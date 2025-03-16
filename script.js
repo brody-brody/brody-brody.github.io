@@ -145,13 +145,13 @@ document.addEventListener('DOMContentLoaded', function () {
     "}";
 
     const fonts = [
-        { name: 'SuperMario256', weight: 'normal' }
+        { name: 'SuperMario256', weight: 'normal' },
         { name: 'ANDYB', weight: 'normal' },
         { name: 'FEASFBRG', weight: 'normal' },
         { name: 'HyliaSerif', weight: 'normal' },
         { name: 'Legothick', weight: 'normal' },
         { name: 'm6x11', weight: 'normal' },
-        { name: 'MinecraftTen', weight: 'normal' },
+        { name: 'MinecraftTen', weight: 'normal' }
     ];
 
     // Add the custom fonts style to the head
