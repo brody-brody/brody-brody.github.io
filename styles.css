@@ -802,7 +802,7 @@ p {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
 	.container {
-		width: 90%;
+		width: 100%;
 		padding: 20px;
 	}
 
