@@ -47,7 +47,7 @@ body {
 	}
 
 	body {
-		justify-content: center; /* Change from center to start */
+		justify-content: center;
 		padding-top: 20px; /* Add some space at the very top */
 	}
 }
