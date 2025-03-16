@@ -98,7 +98,7 @@ p {
 		background-color: #FA5C5C; /* Itch.io's 'Itchy Carnation' */
 	}
 
-/* Styles for Name Effect */
+/* Typewriter effect styles */
 #name-typewriter {
 	display: inline-block;
 	position: relative;
@@ -131,24 +131,33 @@ p {
 	}
 }
 
-/* Wave animation for characters */
+/* Improved Wave animation for characters */
 .wave-char {
 	display: inline-block;
 	position: relative;
-	animation: wave 2s ease-in-out infinite;
+	animation: smoothWave 2s ease-in-out infinite;
+	animation-play-state: running;
 }
 
-@keyframes wave {
-	0%, 100% {
+@keyframes smoothWave {
+	0% {
 		transform: translateY(0);
 	}
 
 	25% {
-		transform: translateY(-5px);
+		transform: translateY(-3px);
+	}
+
+	50% {
+		transform: translateY(0);
 	}
 
 	75% {
-		transform: translateY(3px);
+		transform: translateY(2px);
+	}
+
+	100% {
+		transform: translateY(0);
 	}
 }
 
