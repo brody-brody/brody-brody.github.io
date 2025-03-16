@@ -139,9 +139,9 @@ p {
 	overflow: hidden;
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
 	.typed-text {
-		margin: -20px;
+		padding: -20px;
 	}
 }
 
