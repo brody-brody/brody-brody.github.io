@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { name: 'ANDYB', weight: 'normal' },
         { name: 'FEASFBRG', weight: 'normal' },
         { name: 'HyliaSerif', weight: 'normal' },
+        { name: 'Legothick', weight: 'normal' },
         { name: 'm6x11', weight: 'normal' },
         { name: 'MinecraftTen', weight: 'normal' },
         { name: 'SuperMario256', weight: 'normal' }
@@ -160,14 +161,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const cursorElement = document.querySelector('.cursor');
     let fontIndex = 0;
 
+    // Set font before typing begins
+    function setCurrentFont() {
+        // Set current font immediately
+        typedTextElement.style.fontFamily = fonts[fontIndex].name;
+        typedTextElement.style.fontWeight = fonts[fontIndex].weight;
+        typedTextElement.style.fontSize = "2rem"; // You can adjust the size here
+    }
+
     // Type effect with letter-by-letter wave animation
     function typeText() {
         // Clear any existing content
         typedTextElement.innerHTML = '';
 
-        // Set current font
-        typedTextElement.style.fontFamily = fonts[fontIndex].name;
-        typedTextElement.style.fontWeight = fonts[fontIndex].weight;
+        // Set font immediately before typing starts
+        setCurrentFont();
 
         let charIndex = 0;
 
@@ -208,7 +216,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 clearInterval(deleting);
                 // Move to next font
                 fontIndex = (fontIndex + 1) % fonts.length;
-                setTimeout(typeText, 500); // Wait 0.5 second before typing again
+
+                // Set the next font immediately after all text is deleted
+                setCurrentFont();
+
+                // Short pause before typing again
+                setTimeout(typeText, 300);
             }
         }, 50); // Deleting speed (ms)
     }
