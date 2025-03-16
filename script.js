@@ -113,13 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     // Define your name and the fonts you want to cycle through
     const name = "Brody Silva";
-    const fonts = [
-        { name: 'Fira Sans', weight: '400' },
-        { name: 'Courier New', weight: 'bold' },
-        { name: 'Georgia', weight: '700' },
-        { name: 'Impact', weight: 'normal' },
-        { name: 'Verdana', weight: '500' }
-    ];
 
     // Add your custom fonts here
     const customFonts = "@font-face {" +

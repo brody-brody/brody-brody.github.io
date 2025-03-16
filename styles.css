@@ -152,6 +152,23 @@ p {
 	}
 }
 
+/* Font Attribution Styles */
+.font-attribution {
+	font-size: 0.85em;
+	margin-top: 10px;
+	opacity: 0.8;
+}
+
+	.font-attribution a {
+		color: inherit;
+		text-decoration: underline;
+		margin: 0 2px;
+	}
+
+		.font-attribution a:hover {
+			opacity: 0.7;
+		}
+
 /* Tab Styles */
 .tabs {
 	display: flex;
