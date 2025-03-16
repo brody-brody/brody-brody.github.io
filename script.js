@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Define your name and the fonts you want to cycle through
+    // Defining name and fonts to cycle through
     const name = "Brody Silva";
 
     // Add your custom fonts here
