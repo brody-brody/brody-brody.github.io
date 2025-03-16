@@ -43,12 +43,11 @@ body {
 @media only screen and (max-width: 768px) {
 	.mobile-spacer {
 		display: block;
-		height: 40px;
-		width: 100%;
+		height: 30px;
 	}
 
 	body {
-		justify-content: flex-start; /* Change from center to start */
+		justify-content: center; /* Change from center to start */
 		padding-top: 20px; /* Add some space at the very top */
 	}
 }
