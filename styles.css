@@ -118,13 +118,12 @@ p {
 /* Text container */
 .typed-text {
 	display: inline-block;
-	font-size: clamp(3rem, 8vw, 6rem); /* Increased minimum size */
+	font-size: clamp(3rem, 10vw, 6rem); /* Increased minimum size */
 	line-height: 1.2;
 	position: relative;
 	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
-	max-width: 100%;
 }
 
 /* Cursor */
