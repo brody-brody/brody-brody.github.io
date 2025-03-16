@@ -161,12 +161,49 @@ document.addEventListener('DOMContentLoaded', function () {
     const cursorElement = document.querySelector('.cursor');
     let fontIndex = 0;
 
+    // Function to ensure fonts are loaded before starting animation
+    function preloadFonts() {
+        return new Promise((mainResolve) => {
+            // For web fonts API
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => {
+                    // Add a small delay to ensure rendering
+                    setTimeout(mainResolve, 200);
+                });
+            } else {
+                // Fallback for browsers without font loading API
+                setTimeout(mainResolve, 500);
+            }
+        });
+    }
+
     // Set font before typing begins
     function setCurrentFont() {
         // Set current font immediately
         typedTextElement.style.fontFamily = fonts[fontIndex].name;
         typedTextElement.style.fontWeight = fonts[fontIndex].weight;
-        typedTextElement.style.fontSize = "2rem"; // You can adjust the size here
+
+        // Update cursor height to match current font
+        updateCursorHeight();
+    }
+
+    // Update cursor height based on current font
+    function updateCursorHeight() {
+        // Use a temporary element to measure font height
+        const tempSpan = document.createElement('span');
+        tempSpan.textContent = 'M'; // Capital M is typically a good height reference
+        tempSpan.style.fontFamily = fonts[fontIndex].name;
+        tempSpan.style.fontWeight = fonts[fontIndex].weight;
+        tempSpan.style.fontSize = getComputedStyle(typedTextElement).fontSize;
+        tempSpan.style.visibility = 'hidden';
+        typedTextElement.parentNode.appendChild(tempSpan);
+
+        // Set cursor height based on the temp element
+        const height = tempSpan.offsetHeight;
+        cursorElement.style.height = height + 'px';
+
+        // Clean up
+        typedTextElement.parentNode.removeChild(tempSpan);
     }
 
     // Type effect with letter-by-letter wave animation
@@ -210,27 +247,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const deleting = setInterval(() => {
             if (charIndex > 0) {
-                typedTextElement.removeChild(typedTextElement.children[charIndex - 1]);
+                typedTextElement.removeChild(typedTextElement.children[charIndex -
+                    1]);
                 charIndex--;
             } else {
                 clearInterval(deleting);
                 // Move to next font
                 fontIndex = (fontIndex + 1) % fonts.length;
 
-                // Set the next font immediately after all text is deleted
-                setCurrentFont();
-
                 // Short pause before typing again
-                setTimeout(typeText, 300);
+                setTimeout(() => {
+                    setCurrentFont();
+                    typeText();
+                }, 300);
             }
         }, 50); // Deleting speed (ms)
     }
-
-    // Start the effect
-    typeText();
 
     // Cursor blinking effect
     setInterval(() => {
         cursorElement.classList.toggle('blink');
     }, 500);
+
+    // Start the animation after ensuring fonts are loaded
+    preloadFonts().then(() => {
+        typeText();
+    });
 });

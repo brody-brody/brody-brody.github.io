@@ -100,13 +100,21 @@ p {
 
 /* Typewriter effect styles */
 #name-typewriter {
-	display: inline-block;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	height: 8rem; /* Fixed container height */
 	position: relative;
-	min-height: 1.2em; /* Prevents layout shift when text changes */
+	overflow: visible; /* Allow text to overflow if needed */
+	margin: 1rem 0;
 }
 
 .typed-text {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	font-size: 6rem;
+	line-height: 1;
+	min-height: 1em;
 }
 
 .cursor {
@@ -115,6 +123,8 @@ p {
 	background-color: #333;
 	margin-left: 2px;
 	animation: blink 1s infinite;
+	align-self: center;
+	/* Height will be set dynamically in JavaScript */
 }
 
 	.cursor.blink {
