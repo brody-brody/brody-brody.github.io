@@ -107,7 +107,7 @@ p {
 
 .typed-text {
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 6rem;
 }
 
 .cursor {
@@ -133,28 +133,34 @@ p {
 }
 
 /* Improved Wave animation for characters */
+/* Completely smooth wave animation */
 .wave-char {
 	display: inline-block;
 	position: relative;
-	animation: smoothWave 2s ease-in-out infinite;
+	animation: superSmoothWave 1.5s ease-in-out infinite;
 	animation-play-state: running;
+	will-change: transform; /* Improves animation performance */
 }
 
-@keyframes smoothWave {
+@keyframes superSmoothWave {
 	0% {
 		transform: translateY(0);
 	}
 
-	25% {
-		transform: translateY(-3px);
+	20% {
+		transform: translateY(-2px);
 	}
 
-	50% {
+	40% {
 		transform: translateY(0);
 	}
 
-	75% {
+	60% {
 		transform: translateY(2px);
+	}
+
+	80% {
+		transform: translateY(0);
 	}
 
 	100% {
