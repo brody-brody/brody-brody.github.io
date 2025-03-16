@@ -102,11 +102,12 @@ p {
 #name-typewriter {
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center; /* Center content horizontally */
 	height: 8rem; /* Fixed container height */
 	position: relative;
 	overflow: visible; /* Allow text to overflow if needed */
 	margin: 1rem 0;
+	width: 100%; /* Ensure it takes full width of its parent */
 }
 
 .typed-text {
@@ -115,6 +116,7 @@ p {
 	font-size: 6rem;
 	line-height: 1;
 	min-height: 1em;
+	text-align: center; /* Center text */
 }
 
 .cursor {
@@ -141,32 +143,52 @@ p {
 	}
 }
 
-/* Ultra-smooth wave animation for characters */
+/* Mathematically precise sine wave animation for characters */
 .wave-char {
 	display: inline-block;
 	position: relative;
-	animation: ultraSmoothWave 1.2s cubic-bezier(0.4, 0.0, 0.6, 1) infinite;
+	animation: preciseSineWave 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
 	animation-play-state: running;
 	will-change: transform;
-	backface-visibility: hidden; /* Further optimization */
-	-webkit-font-smoothing: antialiased; /* Better text rendering */
+	backface-visibility: hidden;
+	-webkit-font-smoothing: antialiased;
 }
 
-@keyframes ultraSmoothWave {
+@keyframes preciseSineWave {
 	0% {
-		transform: translateY(0);
+		transform: translateY(0px);
 	}
 
-	33% {
-		transform: translateY(-2px);
+	12.5% {
+		transform: translateY(-2.12px);
 	}
 
-	66% {
-		transform: translateY(2px);
+	25% {
+		transform: translateY(-3px);
+	}
+
+	37.5% {
+		transform: translateY(-2.12px);
+	}
+
+	50% {
+		transform: translateY(0px);
+	}
+
+	62.5% {
+		transform: translateY(2.12px);
+	}
+
+	75% {
+		transform: translateY(3px);
+	}
+
+	87.5% {
+		transform: translateY(2.12px);
 	}
 
 	100% {
-		transform: translateY(0);
+		transform: translateY(0px);
 	}
 }
 

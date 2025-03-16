@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
         typedTextElement.parentNode.removeChild(tempSpan);
     }
 
-    // Type effect with letter-by-letter wave animation
+    // Type effect with letter-by-letter animation, but no wave until complete
     function typeText() {
         // Clear any existing content
         typedTextElement.innerHTML = '';
@@ -215,16 +215,16 @@ document.addEventListener('DOMContentLoaded', function () {
         setCurrentFont();
 
         let charIndex = 0;
+        const allChars = []; // Store all character spans
 
         const typing = setInterval(() => {
             if (charIndex < name.length) {
-                // Create a span for each character to animate individually
+                // Create a span for each character
                 const charSpan = document.createElement('span');
                 charSpan.textContent = name.charAt(charIndex);
-                charSpan.classList.add('wave-char');
 
-                // Different animation phases for each letter
-                charSpan.style.animationDelay = (charIndex * 0.08) + "s";
+                // Add to our collection but don't add the wave class yet
+                allChars.push(charSpan);
 
                 // If it's a space, make sure it's preserved
                 if (name.charAt(charIndex) === ' ') {
@@ -236,7 +236,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 charIndex++;
             } else {
                 clearInterval(typing);
-                setTimeout(deleteText, 8000); // Wait 8 seconds before deleting
+
+                // Now that all characters are typed, add the wave class to each one
+                // with a slight delay for a cascading effect
+                allChars.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.classList.add('wave-char');
+                        char.style.animationDelay = (index * 0.08) + "s";
+                    }, 50); // Short delay before waves start
+                });
+
+                // Wait before deleting
+                setTimeout(deleteText, 8000);
             }
         }, 100); // Typing speed (ms)
     }
@@ -247,8 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const deleting = setInterval(() => {
             if (charIndex > 0) {
-                typedTextElement.removeChild(typedTextElement.children[charIndex -
-                    1]);
+                typedTextElement.removeChild(typedTextElement.children[charIndex - 1]);
                 charIndex--;
             } else {
                 clearInterval(deleting);
