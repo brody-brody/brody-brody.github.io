@@ -44,12 +44,12 @@ body {
 @media only screen and (max-width: 768px) {
 	.mobile-spacer {
 		display: block;
-		height: 30px;
+		height: 10px;
 	}
 
 	body {
 		justify-content: center;
-		margin-top: 20px; /* Add some space at the very top */
+		margin-top: 10px; /* Add some space at the very top */
 	}
 }
 
@@ -70,6 +70,12 @@ p {
 	color: #666666;
 	margin-bottom: -15px;
 	margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+	.education-info {
+		margin-top: -10px;
+	}
 }
 
 .links {
@@ -151,7 +157,6 @@ p {
 	display: inline-block;
 	width: 3px;
 	background-color: #333;
-	margin-left: 5px;
 	animation: blink 1s infinite;
 	vertical-align: middle;
 	position: relative;
@@ -830,12 +835,11 @@ p {
 	.container {
 		width: 95%;
 		padding: 15px;
-		margin-top: -30px;
 	}
 
 	.headshot {
 		width: 150px;
-		height: 150px;
+		height: 200px;
 	}
 }
 /* Responsive Design for About me */
