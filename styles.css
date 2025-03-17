@@ -139,7 +139,6 @@ p {
 	display: inline-block;
 	font-size: clamp(3rem, 8vw, 6rem); /* Increased minimum size */
 	line-height: 1.2;
-	position: relative;
 	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
