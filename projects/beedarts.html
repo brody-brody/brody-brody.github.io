@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- prohibit browser from caching site, mostly for rapid development -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Fira Sans font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Geo:ital@0;1&display=swap" rel="stylesheet">
+    <!-- favicon support for all devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
+    <!-- link to project page CSS file -->
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="project-styles.css">
+    <!-- site title in tab -->
+    <title>Bee Darts - Brody Silva</title>
+</head>
+<body>
+    <div class="container">
+        <div class="mobile-spacer"></div>
+        <div class="project-header">
+            <a href="../index.html" class="back-button">← Back to Portfolio</a>
+            <h1 class="project-title">Bee Darts</h1>
+        </div>
+
+        <div class="project-content">
+            <div class="project-info">
+                <div class="project-image">
+                    <img src="../images/beedarts/bdcoverimage.png" alt="Bee Darts" class="project-cover">
+                </div>
+
+                <div class="project-details">
+                    <div class="detail-item">
+                        <h4>Project Type</h4>
+                        <p>Summer Project</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Technologies</h4>
+                        <p>Unity, C#, Git</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Date Created</h4>
+                        <p>August 2025</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Links</h4>
+                        <p>
+                            <a href="https://brody-dev.itch.io/bee-darts" target="_blank">Play the Game</a>
+                        </p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Team Members</h4>
+                        <p>Brody Silva - Programmer, Designer</p>
+                        <p>Zax Nathanson - Programmer, Designer</p>
+                        <p>Emaleigh Hunter - Artist</p>
+                        <p>Olivia Santamauro - Artist</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-video">
+                <h2>Project Demo</h2>
+                <video controls width="100" poster="../images/beedarts/bdtitlescreen.png">
+                    <source src="../videos/beedarts/bddemo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-caption">A short gameplay video</p>
+            </div>
+
+            <div class="project-description">
+                <h2>About the Project</h2>
+                <p>Bee Darts is a 3D puzzle sandbox game demo where you can throw bees like darts to interact with your surroundings. All objects are interactable, and every new object has a unique interaction.</p>
+                <h2>Features</h2>
+                <ul>
+                    <li>Hex grid map that is easily expandable through an in-editor snap-to-grid tool using axial coordinate calculations</li>
+                    <li>Short and sweet gameplay with smooth movement and entirely random funny moments</li>
+                    <li>Shaders, sounds, and game-feel all for good viewing and playing experience</li>
+                </ul>
+
+                <h2>Development Process</h2>
+                <p>Starting out essentially as a joke, Bee Darts was born from a silly brainstorming activity of slapping two random words together. The bees and the first dartboards were not much of a challenge, but once I created our hex grid map, I had to create a system in which dartboards can easily control which tiles are raised from the water all from the hit of the dart. After multiple rearchitecturing processes, the rest of the game came down to how many "bits" can I make without the player being overwhelmed. Keeping code organized and efficient was a large undertaking, and development had to be made with more development in mind constantly.</p>
+
+                <div class="gallery">
+                    <h2>Screenshots</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="../images/beedarts/bdworldmap.png" alt="The world map" class="gallery-image">
+                            <p class="image-caption">A look at a portion of the map</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../images/beedarts/bdsnaptogrid.gif" alt="Snap-to-grid tool" class="gallery-image">
+                            <p class="image-caption">The snap-to-grid map editing tool</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../images/beedarts/bddog.png" alt="A dog in game" class="gallery-image">
+                            <p class="image-caption">What could this dog be doing?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>What I Learned</h2>
+                <ul>
+                    <li>A much better understanding of editor tools, like the snap-to-grid map tool, or how the map visualizes what hexagons belong to which dartboard</li>
+                    <li>My first 'polished' 3D game, which obviously includes movement, first-person camera and sensitivity</li>
+                    <li>In-depth into Unity-specific derived classes, as all objects derive from a dartboard base class</li>
+                    <li>Working with axial coordinate systems to convert between a hex grid and a square grid</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="overlay" id="imageOverlay">
+            <span class="close-overlay">&times;</span>
+            <img src="" alt="Expanded view" class="overlay-image" id="expandedImg">
+        </div>
+
+        <footer class="site-footer">
+            <p class="footer-text">This website was coded entirely by Brody Silva in HTML, CSS, and JavaScript. For inquiries, contact <a href="mailto:brodysilva.dev@gmail.com" class="footer-link">brodysilva.dev@gmail.com</a></p>
+        </footer>
+
+    </div>
+
+    <script src="../script.js"></script>
+    <script src="project-script.js"></script>
+</body>
+</html>
