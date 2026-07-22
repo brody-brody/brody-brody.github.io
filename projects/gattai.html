@@ -56,7 +56,7 @@
                     </div>
                     <div class="detail-item">
                         <h4>Team Members</h4>
-                        <p>Brody Silva - Backend Programmer, Git Manager</p>
+                        <p>Brody Silva - Gameplay Programmer, Git Manager</p>
                         <p>Seth Riddensdale - Frontend Programmer</p>
                         <p>Zax Nathanson - Designer, Product Owner</p>
                         <p>Adam Siegel - Designer, Producer</p>
@@ -83,12 +83,20 @@
                 <h2>Features</h2>
                 <ul>
                     <li>Cooperative gameplay built around readable enemy encounters, player feedback, and lovable characters</li>
-                    <li>Custom Unity tools and inspectors that helped designers tune enemies, bosses, and gameplay data without needing programmer support</li>
+                    <li>Custom Unity tools and inspectors that helped designers tune enemies, bosses, and gameplay data without programmer support</li>
                     <li>Polished UI, input handling, controller rebinding, menus, shaders, and game-feel systems for a competition-ready vertical slice</li>
                 </ul>
 
                 <h2>Development Process</h2>
-                <p>GATTAI was developed for this Ubisoft-led competition using Unity, version control through Git, and project management through Jira. My work focused on backend gameplay architecture, git management, designer tools, all UI/UX implementation, input-handling systems, and shaders. Since the project had a short production timeline, I prioritized systems that were reusable, easy to tune, and stable enough for designers and artists to build content around. Our project went on to win Best Art Direction and Production and Best Quality of 3C's ($10,000), and was separately nominated for 6 other awards.</p>
+                <p>GATTAI was developed for this Ubisoft-led competition using Unity, version control through Git, and project management through Jira. My work focused on gameplay systems, designer tools, gameplay UI/UX implementation, input-handling systems, and shaders. Throughout development, I collaborated closely with designers to build systems that were reusable, easy to iterate on, and flexible enough to support our rapid changes within our short production timeline. Our project went on to win Best Art Direction and Production and Best Quality of 3C's ($10,000), and was separately nominated for 6 other awards.</p>
+
+                <h2>Design Challenges</h2>
+                <p>The biggest design challenge was the players combining into one mech. Lots of player testing revealed that the biggest problems were a lack of information conveyed to the player and the mech being overpowered.</p>
+                <ul>
+                    <li>The mech and its bullets would change colors depending on who was moving the mech and who was shooting</li>
+                    <li>Mech sections, where the players would combine and face higher numbers of enemies, were hardwired into levels so that the overpowered mech would still face difficulty</li>
+                    <li>On-screen UI would fade in and out to focus the players on being in the mech rather than their original ships</li>
+                </ul>
 
                 <div class="gallery">
                     <h2>Screenshots</h2>
