@@ -49,7 +49,7 @@ body {
 
 	body {
 		justify-content: center;
-		margin-top: 10px; /* Add some space at the very top */
+		margin-top: 10px;
 	}
 }
 
@@ -134,10 +134,9 @@ p {
 	margin: 1rem 0;
 }
 
-/* Text container */
 .typed-text {
 	display: inline-block;
-	font-size: clamp(3rem, 8vw, 6rem); /* Increased minimum size */
+	font-size: clamp(3rem, 8vw, 6rem);
 	line-height: 1.2;
 	text-align: center;
 	white-space: nowrap;
@@ -153,14 +152,13 @@ p {
 	}
 }
 
-/* Cursor */
 .cursor {
 	display: inline-block;
 	width: 3px;
 	background-color: #333;
 	animation: blink 1s infinite;
 	vertical-align: middle;
-	height: 0.8em; /* Match text height better */
+	height: 0.8em;
 }
 
 	.cursor.blink {
@@ -177,7 +175,6 @@ p {
 	}
 }
 
-/* Font Attribution Styles */
 .font-attribution {
 	font-size: 0.85em;
 	margin-top: 10px;
@@ -194,14 +191,12 @@ p {
 			opacity: 0.7;
 		}
 
-/* Add this media query for better mobile spacing */
 @media (max-width: 768px) {
 	.container {
 		margin-top: 30px;
 	}
 }
 
-/* Tab Styles */
 .tabs {
 	display: flex;
 	justify-content: center;
@@ -239,7 +234,6 @@ p {
 		display: block;
 	}
 
-/* Headshot Styles */
 .about-header {
 	display: flex;
 	justify-content: flex-start;
@@ -254,7 +248,6 @@ p {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* About Me Section Styles */
 .about-content {
 	display: flex;
 	justify-content: center;
@@ -323,7 +316,6 @@ p {
 	color: #851101;
 }
 
-/* Photo Gallery for About Me Section */
 .photo-gallery {
 	margin-top: 30px;
 	text-align: center;
@@ -369,7 +361,6 @@ p {
 	text-align: center;
 }
 
-/* Make the gallery responsive */
 @media (max-width: 600px) {
 	.gallery-grid {
 		grid-template-columns: 1fr;
@@ -381,7 +372,6 @@ p {
 	}
 }
 
-/* Expandable Image Styles */
 .overlay {
 	position: fixed;
 	top: 0;
@@ -425,7 +415,6 @@ p {
 	cursor: pointer;
 }
 
-/* Enhanced Project Card Styles */
 .project-card {
 	display: flex;
 	border: 2px solid #2e2e2e;
@@ -478,7 +467,6 @@ p {
 	text-decoration: underline;
 }
 
-/* Responsive Project Cards */
 @media (max-width: 600px) {
 	.project-card {
 		flex-direction: column;
@@ -490,7 +478,6 @@ p {
 	}
 }
 
-/* Video Section Styles */
 .project-video {
 	margin: 30px 0;
 }
@@ -514,7 +501,6 @@ p {
 	text-align: center;
 }
 
-/* Skills Section Styles */
 .skills-list {
 	display: flex;
 	flex-direction: column;
@@ -584,7 +570,6 @@ p {
 }
 
 .skill-item.active .skill-details {
-	/* Remove the fixed max-height - the JS will handle this dynamically */
 	padding: 0 15px 15px 15px;
 }
 
@@ -616,7 +601,6 @@ p {
 	color: #444;
 }
 
-/* Responsive Skills Section */
 @media (max-width: 768px) {
 	.skill-header {
 		padding: 12px;
@@ -649,7 +633,6 @@ p {
 	}
 }
 
-	/* Devicon Icons */
 	.skill i {
 		font-size: 2rem;
 		color: #851101;
@@ -659,7 +642,6 @@ p {
 	padding-bottom: 100px;
 }
 
-/* Resume & Contact Styles */
 .resume-section {
 	display: flex;
 	align-items: center;
@@ -708,7 +690,6 @@ p {
 	margin-top: 5px;
 }
 
-/* Add responsive design for smaller screens */
 @media (max-width: 600px) {
 	.resume-section {
 		flex-direction: column;
@@ -720,7 +701,6 @@ p {
 	}
 }
 
-/* Contact Form */
 .contact-form {
 	display: flex;
 	flex-direction: column;
@@ -764,7 +744,6 @@ p {
 	margin-top: 30px;
 }
 
-/* Professional Profiles */
 .links a {
 	display: inline-flex;
 	align-items: center;
@@ -781,12 +760,10 @@ p {
 	padding-bottom: 100px;
 }
 
-/* Icons */
 .fas, .fab {
 	font-size: 18px;
 }
 
-/* Footer Styles */
 .site-footer {
 	margin-top: 60px;
 	padding-top: 15px;
@@ -811,7 +788,6 @@ p {
 		text-decoration: underline;
 	}
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
 	.container {
 		width: 100%;
@@ -842,7 +818,7 @@ p {
 		height: 200px;
 	}
 }
-/* Responsive Design for About me */
+
 @media (max-width: 768px) {
 	.about-content {
 		flex-direction: column;
