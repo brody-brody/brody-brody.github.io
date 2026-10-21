@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         details.style.paddingBottom = '0px';
 
         header.addEventListener('click', function () {
-
+            if (item.classList.contains('active')) {
                 details.style.maxHeight = '0px';
                 details.style.paddingTop = '0px';
                 details.style.paddingBottom = '0px';
